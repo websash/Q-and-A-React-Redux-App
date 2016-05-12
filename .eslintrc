@@ -1,0 +1,20 @@
+{
+  "parser"  : "babel-eslint",
+  "extends": ["standard", "standard-react"],
+  "env": {
+    "browser" : true
+  },
+  "rules": {
+  	"semi": [2, "never"],
+  	"curly": [2, "multi-or-nest", "consistent"],
+  	"padded-blocks": 0,
+  	"no-multiple-empty-lines": [2, {"max": 2, "maxEOF": 1}],
+  	"operator-linebreak": 0,
+  	"space-before-function-paren": [2, {"anonymous": "always", "named": "never"}],
+  	"jsx-quotes": [2, "prefer-double"],
+  	"react/prop-types": [1, {"ignore": [], "customValidators": []}],
+  	"react/jsx-indent": 0,
+  	"react/jsx-indent-props": 0,
+  	"react/jsx-no-bind": 1
+  }
+}

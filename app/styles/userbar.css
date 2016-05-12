@@ -1,0 +1,45 @@
+.user-bar {
+    background: #7c7c7c;
+    display: inline-block;
+    border-radius: 0 0 10px 10px;
+    position: absolute;
+}
+.user-bar-inner {
+    padding: 0 1em 0.4em;
+    position: relative;
+}
+.user-bar::before, .user-bar::after, .user-bar-inner::before, .user-bar-inner::after {
+    content: "";
+    position: absolute;
+    top: 0;
+}
+.user-bar::before, .user-bar::after {
+    background: #7c7c7c;
+    width: 10px;
+    height: 10px;
+}
+.user-bar::before { left: -10px; }
+.user-bar::after { right: -10px; }
+.user-bar-inner::before { left: -20px; }
+.user-bar-inner::after { right: -20px; }
+.user-bar-inner::before, .user-bar-inner::after {
+    width: 20px;
+    height: 20px;
+    border-radius: 10px;
+    background: #cfd0d0;
+    z-index: 2;
+}
+@media (max-width: 768px) {
+    .user-bar {
+        position: relative;
+    }
+}
+.user-bar a {
+    color: #b8b9b9;
+    text-decoration: none;
+    font-size: .92em;
+    margin: 0 .5em;
+}
+.user-bar a:hover {
+    color: #cfcfcf;
+}

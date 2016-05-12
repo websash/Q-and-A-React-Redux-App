@@ -1,0 +1,43 @@
+.error-messages {
+    position: fixed;
+    overflow: hidden;
+    bottom: 0;
+    left: 5%;
+    right: 5%;
+    max-width: 500px;
+    margin: 0 auto;
+}
+.error-message {
+    border-radius: 5px;
+    background-color: #d87f8b;
+    color: white;
+    list-style: none;
+    margin: 2px auto;
+    padding: .7em 5%;
+    font-size: 0.9em;
+}
+.error-message:first-child {
+    background-color: #c75161;
+}
+.message-enter {
+    opacity: 0.1;
+    /*transform: translate3d(0, 50px, 0);*/
+    margin-bottom: -50px;
+}
+.message-enter.message-enter-active {
+    opacity: 1;
+    /*transform: translate3d(0, 0, 0);*/
+    margin-bottom: 0;
+    transition: all 180ms cubic-bezier(0, 0.8, 0.21, 1.22);
+}
+.message-leave {
+    opacity: 1;
+    /*transform: translate3d(0, 0, 0);*/
+    margin-bottom: 0;
+}
+.message-leave.message-leave-active {
+    opacity: 0.25;
+    /*transform: translate3d(0, 50px, 0);*/
+    margin-bottom: -50px;
+    transition: all 200ms ease-in;
+}

@@ -1,0 +1,31 @@
+*, *:after, *:before {
+    box-sizing: border-box;
+}
+.container {
+    padding: 0 5%;
+}
+.content {
+    max-width: 820px;
+    margin: 0 auto;
+}
+.inner-content {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 5%;
+}
+.top-bar .content {
+    position: relative;
+}
+.grid {
+    display: flex;
+}
+.grid.stretch {
+    justify-content: space-between;
+}
+.grid.align-right {
+    justify-content: flex-end;
+}
+.app-header {
+    padding: 1.5em 1em;
+    text-align: center;
+}
