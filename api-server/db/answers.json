@@ -1,0 +1,253 @@
+[{
+	"_id": "Hk6yxYrW",
+	"updatedAt": {
+		"$date": "2016-05-03T01:33:25.367Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T01:33:25.367Z"
+	},
+	"user": "sandy-brooks",
+	"answer": "Statistically there is no direct answer to your question. However, in general, open source developers can get smarter than close source developers. It is because they get more exposure than close source developers. This is why many close sourced companies are releasing more of its proprietary products in tandem with open source community versions of their products.",
+	"__v": 0
+},
+{
+	"_id": "rJk3eYBW",
+	"updatedAt": {
+		"$date": "2016-05-03T01:36:39.503Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T01:36:39.503Z"
+	},
+	"user": "sandy-brooks",
+	"answer": "Most definitely. Every push, every shove, every trip I I fell down to, made me a bigger person. I learned, learned and then learned some more through whatever little hardship that I have had to face at my tender age. ;)",
+	"__v": 0
+},
+{
+	"_id": "SkLDDKrb",
+	"updatedAt": {
+		"$date": "2016-05-03T02:05:17.627Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T02:05:17.627Z"
+	},
+	"user": "michael-carrey",
+	"answer": "I think age will add to one's wisdom but the rate of which will be different for every person. Invalidating age as an independent factor for determining level of wisdom.\n\nThis rate is then determined by other factors like your tendency to learn, intelligence and so forth.",
+	"__v": 0
+},
+{
+	"_id": "rJtsDFHZ",
+	"updatedAt": {
+		"$date": "2016-05-03T02:06:24.811Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T02:06:24.811Z"
+	},
+	"user": "jackjohns",
+	"answer": "Age doesn't automatically mean wisdom. My 80-something year old grandfather is living proof of that.\n\nWisdom is obtained when finding yourself, which anyone can do at any age, theoretically anyway. The problem seem to be that most people strive to become wise instead of striving to find themselves. Which is completely backwards. Wisdom comes with the deal, it's not something you can have without the other. ",
+	"__v": 0
+},
+{
+	"_id": "H11beiH-",
+	"updatedAt": {
+		"$date": "2016-05-03T03:50:14.709Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T03:50:14.709Z"
+	},
+	"user": "jackjohns",
+	"answer": "Short answer: Learn Rust. In my view, it’s the most important new language since Java brought type safety to the mainstream. Rust promises very high-level, zero-cost, watertight abstraction—in short, the performance and expressiveness of C++ without the dangling pointers, double frees, data races, and assorted nasal demons. I’ve been working with it for about nine months now, and I’m convinced that it delivers.",
+	"__v": 0
+},
+{
+	"_id": "H1NZF3BZ",
+	"updatedAt": {
+		"$date": "2016-05-03T05:36:59.613Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T05:36:59.613Z"
+	},
+	"user": "jackjohns",
+	"answer": "Fundamentally, coding is nothing but giving instructions to a computer on what it should do. Without these instructions, a computer is no different from a stone. Every single action done by every single computer from the beginning until now is due to someone coding it in.\n\nSo YES, coding is the core activity in computer programming/computer science/software engineering. Everything else  is done to facilitate this process.",
+	"__v": 0
+},
+{
+	"_id": "HJvoNTB-",
+	"updatedAt": {
+		"$date": "2016-05-03T06:26:39.303Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T06:26:39.303Z"
+	},
+	"user": "cindyshaw",
+	"answer": "Fictional magic is typically something you can learn and train - as long as you have some sort of \"gift\". Following that logic, even the simple variants will require some sort of knowledge / ritual to trigger and control... but in exchange for that inconvenience (putting the occasional magical girl aside), mages in fiction are not one-trick-ponies, but instead can do a lot of stuff. ",
+	"__v": 0
+},
+{
+	"_id": "HkhFOpHZ",
+	"updatedAt": {
+		"$date": "2016-05-03T06:43:15.680Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T06:43:15.680Z"
+	},
+	"user": "steve-teller",
+	"answer": "If you are choosing the most powerful language to learn, I would recommend learning a statically typed functional language like OCaml or Haskell.  While learning something like Python will have the highest immediate payoff because of the shallow learning curve and its abundant library support, learning a functional language will teach you to think about programming in ways that make you more effective in all languages.  For instance, working with algebraic data types and pattern matching in a strongly typed language teaches you to reason explicitly about what your data should look like and helps you organize your code in languages as low-level as C.  Having constructs such as higher-order functions, algebraic data types, polymorphic functions, and type classes (for organizing overloading polymorphism) in your mental toolbox can make you a much more powerful programmer.  A downside of many of these languages is that there is only a small community that uses them--hence lack of tool and Q\u0026A support.",
+	"__v": 0
+},
+{
+	"_id": "Sk-qrArZ",
+	"updatedAt": {
+		"$date": "2016-05-03T07:38:48.982Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T07:38:48.982Z"
+	},
+	"user": "jackjohns",
+	"answer": "Two for me:\n\n1. Cripple Fight: Cartman over the supermarket tannoy:  \"there is a cripple fight in aisle 5. Ladies \u0026 gentleman cripple fight in aisle 5\". ROFL\n\n2. Trapped in the Closet - \"Tom Cruise come out of the closet, come out of the closet Tom.\" The Scientology episode - so much trouble, so funny...",
+	"__v": 0
+},
+{
+	"_id": "ByldLRSZ",
+	"updatedAt": {
+		"$date": "2016-05-03T07:42:31.616Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T07:42:31.616Z"
+	},
+	"user": "sandy-brooks",
+	"answer": "The scene at then end of \"Scott Tenorman Must Die\" when Cartman reveals how he tricked Scott's parents into getting themselves killed, and then baked them in the chili that Scott just ate. Then, Radiohead comes out and tells Scott he's s crybaby, and that he's not cool. Then, Cartman licks Scott's tears and the episode ends with Cartman doing a Porky the Pig impersonation.",
+	"__v": 0
+},
+{
+	"_id": "ryR2IAr-",
+	"updatedAt": {
+		"$date": "2016-05-03T07:43:49.952Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T07:43:49.952Z"
+	},
+	"user": "martin-exley",
+	"answer": "Cartman in Breast Cancer Show giving a speech and saying, \"Like all breast cancer victims, there is something I need to get off my chest,\" and then laughing uncontrollably.",
+	"__v": 0
+},
+{
+	"_id": "H15GP0Bb",
+	"updatedAt": {
+		"$date": "2016-05-03T07:45:22.022Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T07:45:22.022Z"
+	},
+	"user": "cindyshaw",
+	"answer": "Scott Tenorman Must Die. My favorite scene was at the chili carnival when Cartman revealed his devious plan to Scott as he ate his parents. The look on Scott's face when he saw his mom's finger in the chili was classic.",
+	"__v": 0
+},
+{
+	"_id": "Skrj_1Lb",
+	"updatedAt": {
+		"$date": "2016-05-03T09:00:13.058Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:00:13.058Z"
+	},
+	"user": "jackjohns",
+	"answer": "Yes, just not efficiently. The space to explore is so combinatorial so it makes it extremely large. The more you use heuristics to constrain your solution space the less \"novel\" your solution will be",
+	"__v": 0
+},
+{
+	"_id": "H1ugtyIZ",
+	"updatedAt": {
+		"$date": "2016-05-03T09:01:35.759Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:01:35.759Z"
+	},
+	"user": "martin-exley",
+	"answer": "Yes. No. Depends on how you qualify something as creative.\n\nChess seems like a mere number crunching exercise today but a few decades ago it was considered a creative act to play a game well.\n\nThere are specialized programs that can write music, create paintings, etc. You could argue the computer is just a proxy for the programmer, although in my mind that implies any student is a proxy for the master.",
+	"__v": 0
+},
+{
+	"_id": "rkFXq18W",
+	"updatedAt": {
+		"$date": "2016-05-03T09:06:40.680Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:06:40.680Z"
+	},
+	"user": "michael-carrey",
+	"answer": "In the context that I think you mean, creativity refers to the application of one pattern of relations to a different circumstance thereby solving a previouslly unsolved problem, and a problem whose solution is not already present in the domain of solutions expressed by the program code.  This set of associations is what produces 'aha' moments in humans: when 'clouds' of related ideas are connected.",
+	"__v": 0
+},
+{
+	"_id": "BylAygLZ",
+	"updatedAt": {
+		"$date": "2016-05-03T09:30:47.625Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:30:47.625Z"
+	},
+	"user": "jackjohns",
+	"answer": "It is the bulk of my job in the form of designing a solution for a problem.  Once the solution is designed, the implementation and code usually fall out as a result.  I'm not writing code for the sake of writing code.  It is in response to either a requirement to be met, a new problem, or modification to fix an existing problem or deficiency in a solution.",
+	"__v": 0
+},
+{
+	"_id": "ryueybUb",
+	"updatedAt": {
+		"$date": "2016-05-03T10:35:27.605Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:35:27.605Z"
+	},
+	"user": "jackjohns",
+	"answer": "Because, like all mathematical functions, it has no side effects. That is, no matter when or how often you call it, the result will always be the same (for a given parameter value). Also, no other function can be used to see whether or how often the original function was called, or with which parameters.\n\nThis is obviously the case for the things we call functions in mathematics. It's not the case for a \"function\" that writes to a file or reads from a database. ",
+	"__v": 0
+},
+{
+	"_id": "rJyGebIb",
+	"updatedAt": {
+		"$date": "2016-05-03T10:40:06.522Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:40:06.522Z"
+	},
+	"user": "jackjohns",
+	"answer": "Clojure is pretty funky in that, it is a bit of a hybrid language but not nearly to the extent of something like Scala.\n\nRather than being a functional/OO hybrid like Scala, Clojure is a functional/procedural hybrid. There are immutable data structures, pure functions, persistent data structures, etc... But you also have access to all of the Java language and so you have to ability to work with mutable data structures.\n\nWith that being said, Clojure, as a language, will push you more toward a functional approach when using it.\n\nIs there any specific reason why you ask?\n\nAll the best!",
+	"__v": 0
+},
+{
+	"_id": "B1rOE3Ib",
+	"updatedAt": {
+		"$date": "2016-05-03T23:29:48.614Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:29:48.614Z"
+	},
+	"user": "michael-carrey",
+	"answer": "Programming *IS NOT* a spectator sport! The only way to really understand programming is to get in there and get your hands dirty.  \n\nYes, you can understand it theoretically, but take a game like baseball: It is impossible to really understand baseball unless you've actually played it.  \n\nFor example, why is the slugger always 4th in the batting order?   Unless you've played the game, and know the ebb and flow of a typical game, the details make no sense.\n\nLet's move to programming....Let me give you a program that may or may not contain a bug, challenging you to see whether it has a bug. It's hard to see if you've never actually written code. ",
+	"__v": 0
+},
+{
+	"_id": "BJnEtn8Z",
+	"updatedAt": {
+		"$date": "2016-05-03T23:50:12.353Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:50:12.353Z"
+	},
+	"user": "michael-carrey",
+	"answer": "What will a degree in CS teach you?\n\nIt depends on the degree and where you get it, but it should teach you that:\n\nComputer science is no more about computers than astronomy is about telescopes.\n\nEdsger Dijkstra\n\nYou want to know what computer science, REALLY is? It's the science of computing. A bit tautological, I know, but here's another way of looking at it: it's a framework for understanding how computers think. Computers are incredibly powerful, and have ushered in a new age for mankind. To say that understanding how they actually work is important is an understatement of the year.\n\nBut from a liberal education standpoint, there's another thing that computer science teaches.\n\nComputer science teaches you how YOU think.\n\nYou finally have a model to consider how you do things. Baking an apple pie? You're following an algorithm. Going shopping for a new pair of jeans? You might be weighting them by an optimization/cost function, or maybe you're just a min/max list traversal to find the cheapest or most expensive you can find.\n\nMore importantly, you're mapping these very thoughts into code, i.e. you are expressing your thoughts in the most succinct, concise, correct way possible.\n\nYou won't get much more 'raw' thinking than that, outside of regular human-language writing, but that leaves a lot to be desired due to how important interpretation is. The level of ambiguity is greatly reduced for a computer.",
+	"__v": 0
+},
+{
+	"_id": "rJfPinUZ",
+	"updatedAt": {
+		"$date": "2016-05-03T23:59:21.628Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:59:21.628Z"
+	},
+	"user": "jackjohns",
+	"answer": "1. Compile time error : You get this error when you compile the program. With compilation error you will not be able to run or execute the program.\n\n2. Run time error: You can compile the program successfully. When you run the program, you will get error or exception",
+	"__v": 0
+}]
+

@@ -1,0 +1,15 @@
+{
+  "parser"  : "babel-eslint",
+  "extends": ["standard"],
+  "env": {
+    "node": true
+  },
+  "rules": {
+  	"semi": [2, "never"],
+  	"curly": [2, "multi-or-nest", "consistent"],
+  	"padded-blocks": 0,
+  	"no-multiple-empty-lines": [2, {"max": 2, "maxEOF": 1}],
+  	"operator-linebreak": 0,
+  	"space-before-function-paren": [2, {"anonymous": "always", "named": "never"}]
+  }
+}

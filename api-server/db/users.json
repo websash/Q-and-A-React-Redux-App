@@ -1,0 +1,118 @@
+[{
+	"_id": "jackjohns",
+	"updatedAt": {
+		"$date": "2016-01-03T00:50:23.559Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T00:50:23.559Z"
+	},
+	"name": "Jack Johnson",
+	"password": "$2a$10$S22/eDCAGzDk6s0xdVan7uK5IqH0ogbN7nrcxQWG0NhXqANMaa1j6",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman1-2-128.png",
+	"__v": 0
+},
+{
+	"_id": "cindyshaw",
+	"updatedAt": {
+		"$date": "2016-01-03T00:57:33.370Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T00:57:33.370Z"
+	},
+	"name": "Cindy Shaw",
+	"password": "$2a$10$A7N7jtzNmkRLOiu9i8U9BedYnHcAfAib50Q3QJ92d5s6sLAFQGtZ.",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/girl-2-128.png",
+	"__v": 0
+},
+{
+	"_id": "ter-jones",
+	"updatedAt": {
+		"$date": "2016-01-03T02:42:45.376Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T02:42:45.376Z"
+	},
+	"name": "Terrence Jones",
+	"password": "$2a$10$kLIwtumHIWJTCZoIOG1DwurhyZqmS0wxKScCH8nS9YzDLxOPvNbNO",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/boy-2-128.png",
+	"__v": 0
+},
+{
+	"_id": "sandy-brooks",
+	"updatedAt": {
+		"$date": "2016-01-03T02:43:56.167Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T02:43:56.167Z"
+	},
+	"name": "Sandy Brooks",
+	"password": "$2a$10$NxyoQ1ccm/ItdXQ1n/sjSePKskJYJQ5Wo260NnEM5Cp/Iq0hQzGi.",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/female-128.png",
+	"__v": 0
+},
+{
+	"_id": "martin-exley",
+	"updatedAt": {
+		"$date": "2016-01-03T03:41:22.030Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T03:41:22.030Z"
+	},
+	"name": "Martin Exley",
+	"password": "$2a$10$l3B69TsOhGJXFBSIh7LUl.pj53fC4SVyJOZ2Du1EiwcduS7i5XTNu",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportmale-2-128.png",
+	"__v": 0
+},
+{
+	"_id": "matt-dan",
+	"updatedAt": {
+		"$date": "2016-01-03T05:47:57.471Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T05:47:57.471Z"
+	},
+	"name": "Matt Daniels",
+	"password": "$2a$10$afJeptztC26Bpb0aj/z27.Il.NcT6O4WhW5WssVTJHMNUFzvSf3S.",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/male-128.png",
+	"__v": 0
+},
+{
+	"_id": "tara-bridges",
+	"updatedAt": {
+		"$date": "2016-01-03T05:59:28.751Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T05:59:28.751Z"
+	},
+	"name": "Tara Bridges",
+	"password": "$2a$10$7HPRTC0bvreqojItCPDGhus3P40rTCX89Lic9DTq9rcKQFV6mXkw6",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/supportfemale-2-128.png",
+	"__v": 0
+},
+{
+	"_id": "steve-teller",
+	"updatedAt": {
+		"$date": "2016-01-03T06:41:03.377Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T06:41:03.377Z"
+	},
+	"name": "Steve Teller",
+	"password": "$2a$10$ZZpBWYFbhh6oA3nVa6ekGOIyvaaBl6BUjZXuZo2IZ646hb2XAMKLq",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/malecostume-128.png",
+	"__v": 0
+},
+{
+	"_id": "michael-carrey",
+	"updatedAt": {
+		"$date": "2016-01-03T08:17:14.430Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-03T08:17:14.430Z"
+	},
+	"name": "Michael Carrey",
+	"password": "$2a$10$PXiDSJV003cuXpIuF9ZQmOFNdYcWX.QWQHN2R9fCUCTWxEYXfQ1ci",
+	"avatar": "https://cdn0.iconfinder.com/data/icons/user-pictures/100/matureman2-2-128.png",
+	"__v": 0
+}]
+

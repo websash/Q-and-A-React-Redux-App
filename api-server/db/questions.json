@@ -1,0 +1,796 @@
+[{
+	"_id": "rJnRCUBZ",
+	"updatedAt": {
+		"$date": "2016-01-24T23:12:19.748Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-24T23:12:19.748Z"
+	},
+	"user": "sandy-brooks",
+	"title": "What do non-programmers think a computer program looks like?",
+	"slug": "what-do-non-programmers-think-a-computer-program-looks-like",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "By0J7vrb",
+	"updatedAt": {
+		"$date": "2016-01-25T01:33:25.430Z"
+	},
+	"createdAt": {
+		"$date": "2016-01-25T23:29:41.612Z"
+	},
+	"user": "jackjohns",
+	"title": "Are open source developers smarter than .NET developers?",
+	"slug": "are-open-source-developers-smarter-than-net-developers",
+	"ansCount": 1,
+	"answers": [
+		"Hk6yxYrW"
+	],
+	"__v": 1
+},
+{
+	"_id": "SJ86I_SZ",
+	"updatedAt": {
+		"$date": "2016-02-01T02:06:24.818Z"
+	},
+	"createdAt": {
+		"$date": "2016-02-01T00:54:21.974Z"
+	},
+	"user": "cindyshaw",
+	"title": "Are age and wisdom related?",
+	"slug": "are-age-and-wisdom-related",
+	"ansCount": 3,
+	"answers": [
+		"rJk3eYBW",
+		"SkLDDKrb",
+		"rJtsDFHZ"
+	],
+	"__v": 3
+},
+{
+	"_id": "BkAfCqBW",
+	"updatedAt": {
+		"$date": "2016-03-03T06:43:15.700Z"
+	},
+	"createdAt": {
+		"$date": "2016-03-03T03:42:13.673Z"
+	},
+	"user": "martin-exley",
+	"title": "What are the best programming languages to learn today?",
+	"slug": "what-are-the-best-programming-languages-to-learn-today",
+	"ansCount": 2,
+	"answers": [
+		"H11beiH-",
+		"HkhFOpHZ"
+	],
+	"__v": 2
+},
+{
+	"_id": "rJNOL2SW",
+	"updatedAt": {
+		"$date": "2016-03-03T05:36:59.619Z"
+	},
+	"createdAt": {
+		"$date": "2016-03-03T05:26:04.003Z"
+	},
+	"user": "ter-jones",
+	"title": "Is computer programming all about coding?",
+	"slug": "is-computer-programming-all-about-coding",
+	"ansCount": 1,
+	"answers": [
+		"H1NZF3BZ"
+	],
+	"__v": 1
+},
+{
+	"_id": "ByRatnHW",
+	"updatedAt": {
+		"$date": "2016-03-03T05:40:22.101Z"
+	},
+	"createdAt": {
+		"$date": "2016-03-03T05:40:22.101Z"
+	},
+	"user": "matt-dan",
+	"title": "Is Google using Node.js for any major projects?",
+	"slug": "is-google-using-nodejs-for-any-major-projects",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ByLgJTBb",
+	"updatedAt": {
+		"$date": "2016-04-03T06:02:22.068Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T06:02:22.068Z"
+	},
+	"user": "jackjohns",
+	"title": "Which backend programming language should I learn in 2016?",
+	"slug": "which-backend-programming-language-should-i-learn-in-2016",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "S1dZ4aS-",
+	"updatedAt": {
+		"$date": "2016-04-03T07:26:39.309Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T07:24:00.173Z"
+	},
+	"user": "tara-bridges",
+	"title": "What would happen if everyone had magic powers?",
+	"text": "What if your neighboor was able to play with fire, your son to fly, your daughter to disappear, your best friend to see the future, etc...",
+	"slug": "what-would-happen-if-everyone-had-magic-powers",
+	"ansCount": 1,
+	"answers": [
+		"HJvoNTB-"
+	],
+	"__v": 1
+},
+{
+	"_id": "S1rIHaS-",
+	"updatedAt": {
+		"$date": "2016-04-03T07:45:22.029Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T06:29:32.619Z"
+	},
+	"user": "ter-jones",
+	"title": "What is your favorite scene in South Park?",
+	"text": "Mine is the Canadian strike where they argue, im not your friend,buddy.",
+	"slug": "what-is-your-favorite-scene-in-south-park",
+	"ansCount": 4,
+	"answers": [
+		"Sk-qrArZ",
+		"ByldLRSZ",
+		"ryR2IAr-",
+		"H15GP0Bb"
+	],
+	"__v": 4
+},
+{
+	"_id": "Hk9itTSW",
+	"updatedAt": {
+		"$date": "2016-04-03T06:48:01.685Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T06:48:01.685Z"
+	},
+	"user": "steve-teller",
+	"title": "What is relation between wisdom and ethics?",
+	"text": "",
+	"slug": "what-is-relation-between-wisdom-and-ethics",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ryiEhCS-",
+	"updatedAt": {
+		"$date": "2016-04-03T08:07:14.564Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T08:07:14.564Z"
+	},
+	"user": "martin-exley",
+	"title": "What is computer programming?",
+	"text": "",
+	"slug": "what-is-computer-programming",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "Skin3ABW",
+	"updatedAt": {
+		"$date": "2016-04-03T09:06:40.690Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T08:09:23.433Z"
+	},
+	"user": "cindyshaw",
+	"title": "Can computers write creative programs that solve problems?",
+	"text": "",
+	"slug": "can-computers-write-creative-programs-that-solve-problems",
+	"ansCount": 3,
+	"answers": [
+		"Skrj_1Lb",
+		"H1ugtyIZ",
+		"rkFXq18W"
+	],
+	"__v": 3
+},
+{
+	"_id": "r1SXoJLW",
+	"updatedAt": {
+		"$date": "2016-04-03T09:30:47.632Z"
+	},
+	"createdAt": {
+		"$date": "2016-04-03T09:10:52.604Z"
+	},
+	"user": "sandy-brooks",
+	"title": "Is problem solving really critical for programming?",
+	"text": "What percentage of your work (as a developer in your organization) actually involves problem solving? Do you use problem solving on a daily basis?",
+	"slug": "is-problem-solving-really-critical-for-programming",
+	"ansCount": 1,
+	"answers": [
+		"BylAygLZ"
+	],
+	"__v": 1
+},
+{
+	"_id": "SJm0GeUW",
+	"updatedAt": {
+		"$date": "2016-05-03T09:43:38.820Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:43:38.820Z"
+	},
+	"user": "matt-dan",
+	"title": "What kinds of problems does math solve in programming?",
+	"text": "As an android /web developer I don't find myself using math beside for graphic for solving problems, I heard the other day that some one v was kicked out ,because he tried to solve a programming problem with loop instead of using math , so what are these problems should we be aware of",
+	"slug": "what-kinds-of-problems-does-math-solve-in-programming",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "B1zj8eLW",
+	"updatedAt": {
+		"$date": "2016-05-03T09:59:53.678Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T09:59:53.678Z"
+	},
+	"user": "steve-teller",
+	"title": "What is the single most effective piece of financial advice you've ever received?",
+	"text": "",
+	"slug": "what-is-the-single-most-effective-piece-of-financial-advice-youve-ever-received",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "HydrDgL-",
+	"updatedAt": {
+		"$date": "2016-05-03T10:02:40.507Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:02:40.507Z"
+	},
+	"user": "jackjohns",
+	"title": "Is there a category of pure functions?",
+	"text": "",
+	"slug": "is-there-a-category-of-pure-functions",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ryijRl8b",
+	"updatedAt": {
+		"$date": "2016-05-03T10:35:27.610Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:34:11.034Z"
+	},
+	"user": "cindyshaw",
+	"title": "Functional programming: why is sine considered a pure function?",
+	"text": "",
+	"slug": "functional-programming-why-is-sine-considered-a-pure-function",
+	"ansCount": 1,
+	"answers": [
+		"ryueybUb"
+	],
+	"__v": 1
+},
+{
+	"_id": "ryp6Jb8-",
+	"updatedAt": {
+		"$date": "2016-05-03T10:40:06.529Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:39:01.267Z"
+	},
+	"user": "martin-exley",
+	"title": "Is Clojure a pure functional programming language?",
+	"text": "",
+	"slug": "is-clojure-a-pure-functional-programming-language",
+	"ansCount": 1,
+	"answers": [
+		"rJyGebIb"
+	],
+	"__v": 1
+},
+{
+	"_id": "HkW6xW8b",
+	"updatedAt": {
+		"$date": "2016-05-03T10:43:04.831Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:43:04.831Z"
+	},
+	"user": "ter-jones",
+	"title": "What do programming language experts think of Rust?",
+	"text": "",
+	"slug": "what-do-programming-language-experts-think-of-rust",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "S1KEb-Ub",
+	"updatedAt": {
+		"$date": "2016-05-03T10:45:04.955Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:45:04.955Z"
+	},
+	"user": "jackjohns",
+	"title": "How do Go and Rust languages compare?",
+	"text": "",
+	"slug": "how-do-go-and-rust-languages-compare",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "B1BzVZI-",
+	"updatedAt": {
+		"$date": "2016-05-03T10:57:17.132Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T10:57:17.132Z"
+	},
+	"user": "steve-teller",
+	"title": "What are the advantages of Functional Programming over Object-Oriented Programming?",
+	"text": "",
+	"slug": "what-are-the-advantages-of-functional-programming-over-object-oriented-programming",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SyIFVj8Z",
+	"updatedAt": {
+		"$date": "2016-05-03T22:21:49.990Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:21:49.990Z"
+	},
+	"user": "cindyshaw",
+	"title": "What are monads used for in software engineering?",
+	"text": "",
+	"slug": "what-are-monads-used-for-in-software-engineering",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "B15BrsIb",
+	"updatedAt": {
+		"$date": "2016-05-03T22:25:05.550Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:25:05.550Z"
+	},
+	"user": "sandy-brooks",
+	"title": "Does Anyone use monad in JavaScript?",
+	"text": "",
+	"slug": "does-anyone-use-monad-in-javascript",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "BJNiIo8W",
+	"updatedAt": {
+		"$date": "2016-05-03T22:30:52.433Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:30:52.433Z"
+	},
+	"user": "tara-bridges",
+	"title": "What are the most disgusting travel experiences you have ever encountered?",
+	"text": "",
+	"slug": "what-are-the-most-disgusting-travel-experiences-you-have-ever-encountered",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "rkv8vs8Z",
+	"updatedAt": {
+		"$date": "2016-05-03T22:33:50.618Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:33:50.618Z"
+	},
+	"user": "matt-dan",
+	"title": "How does a doctor feel/react after watching \"House M.D.\"?",
+	"text": "",
+	"slug": "how-does-a-doctor-feelreact-after-watching-house-md",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ryetto8Z",
+	"updatedAt": {
+		"$date": "2016-05-03T22:43:03.538Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:43:03.538Z"
+	},
+	"user": "cindyshaw",
+	"title": "What is the coolest thing that I can do on a computer to impress friends?",
+	"text": "",
+	"slug": "what-is-the-coolest-thing-that-i-can-do-on-a-computer-to-impress-friends",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "By7y9s8b",
+	"updatedAt": {
+		"$date": "2016-05-03T22:44:43.063Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:44:43.063Z"
+	},
+	"user": "steve-teller",
+	"title": "Which programming language is suitable for developing cross-platform GUI application?",
+	"text": "",
+	"slug": "which-programming-language-is-suitable-for-developing-cross-platform-gui-application",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ryAU9jI-",
+	"updatedAt": {
+		"$date": "2016-05-03T22:46:46.397Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:46:46.397Z"
+	},
+	"user": "ter-jones",
+	"title": "How does one create a programming language?",
+	"text": "A language which is extremely simple and easy, yet so powerful that can be used to make anything from operating systems to apps to websites, that can run on every device, have all the strengths minus the weaknesses of other languages, can replace all other languages.",
+	"slug": "how-does-one-create-a-programming-language",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "HJI05oLZ",
+	"updatedAt": {
+		"$date": "2016-05-03T22:48:46.246Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:48:46.246Z"
+	},
+	"user": "sandy-brooks",
+	"title": "What programming languages were created by women?",
+	"text": "Or which languages have female committers?",
+	"slug": "what-programming-languages-were-created-by-women",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "B1M_jjUW",
+	"updatedAt": {
+		"$date": "2016-05-03T22:51:21.587Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:51:21.587Z"
+	},
+	"user": "matt-dan",
+	"title": "What was the first thing you did after a break-up?",
+	"text": "I am most likely to be single again. The one girl that I have ever loved and wanted to get married to might leave me. I have no clue of how my life is going to pan out after this heart-break...\nI am looking for answers that can help me do the 'first-right thing'....\n\nPS:- I can most certainly not go for a rebound nor sleep with anyone..",
+	"slug": "what-was-the-first-thing-you-did-after-a-break-up",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "rJk8hi8W",
+	"updatedAt": {
+		"$date": "2016-05-03T22:55:02.577Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:55:02.577Z"
+	},
+	"user": "tara-bridges",
+	"title": "What's the bravest thing you have ever done?",
+	"text": "",
+	"slug": "whats-the-bravest-thing-you-have-ever-done",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SJbeTsUW",
+	"updatedAt": {
+		"$date": "2016-05-03T22:57:44.638Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:57:44.638Z"
+	},
+	"user": "cindyshaw",
+	"title": "What is the most improbable thing people have ever seen?",
+	"text": "",
+	"slug": "what-is-the-most-improbable-thing-people-have-ever-seen",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "B1AIpjUb",
+	"updatedAt": {
+		"$date": "2016-05-03T22:59:33.608Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T22:59:33.608Z"
+	},
+	"user": "ter-jones",
+	"title": "What is the most bizarre way to die?",
+	"text": "",
+	"slug": "what-is-the-most-bizarre-way-to-die",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "rk3CaiLZ",
+	"updatedAt": {
+		"$date": "2016-05-03T23:01:40.217Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:01:40.217Z"
+	},
+	"user": "martin-exley",
+	"title": "What is the best method of teaching computer programming?",
+	"text": "",
+	"slug": "what-is-the-best-method-of-teaching-computer-programming",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "rJvrCoL-",
+	"updatedAt": {
+		"$date": "2016-05-03T23:03:27.388Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:03:27.388Z"
+	},
+	"user": "jackjohns",
+	"title": "Computer Programming: Who is considered to be the best programmer of all time?",
+	"text": "",
+	"slug": "computer-programming-who-is-considered-to-be-the-best-programmer-of-all-time",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SJaxknL-",
+	"updatedAt": {
+		"$date": "2016-05-03T23:06:29.128Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:06:29.128Z"
+	},
+	"user": "cindyshaw",
+	"title": "What is the best way to learn JavaScript?",
+	"text": "",
+	"slug": "what-is-the-best-way-to-learn-javascript",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SycSknIZ",
+	"updatedAt": {
+		"$date": "2016-05-03T23:07:45.898Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:07:45.898Z"
+	},
+	"user": "matt-dan",
+	"title": "Who are considered the best hackers of all time?",
+	"text": "",
+	"slug": "who-are-considered-the-best-hackers-of-all-time",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "Skr0yh8b",
+	"updatedAt": {
+		"$date": "2016-05-03T23:10:04.616Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:10:04.616Z"
+	},
+	"user": "tara-bridges",
+	"title": "How does the Internet work?",
+	"text": "",
+	"slug": "how-does-the-internet-work",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SJo-b2I-",
+	"updatedAt": {
+		"$date": "2016-05-03T23:15:14.866Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:15:14.866Z"
+	},
+	"user": "steve-teller",
+	"title": "What do I need to do to understand Haskell?",
+	"text": "I need help with this language, this is my second time around trying to get it. I don't want to become an expert or anything, but I want to learn how to use it because I can see the value of FP in certain applications within mainstream languages. I can't even reverse a list, it is frustrating.",
+	"slug": "what-do-i-need-to-do-to-understand-haskell",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "r1BLbnI-",
+	"updatedAt": {
+		"$date": "2016-05-03T23:16:29.225Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:16:29.225Z"
+	},
+	"user": "ter-jones",
+	"title": "Who is Tim Berners-Lee?",
+	"text": "",
+	"slug": "who-is-tim-berners-lee",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "HJ4jzhLW",
+	"updatedAt": {
+		"$date": "2016-05-03T23:22:03.680Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:22:03.680Z"
+	},
+	"user": "cindyshaw",
+	"title": "What TV series are worth watching?",
+	"text": "",
+	"slug": "what-tv-series-are-worth-watching",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "ryeWX28b",
+	"updatedAt": {
+		"$date": "2016-05-03T23:23:35.998Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:23:35.998Z"
+	},
+	"user": "jackjohns",
+	"title": "How do I learn C programming effectively?",
+	"text": "",
+	"slug": "how-do-i-learn-c-programming-effectively",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "HJoyVnLb",
+	"updatedAt": {
+		"$date": "2016-05-03T23:29:48.633Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:27:31.222Z"
+	},
+	"user": "tara-bridges",
+	"title": "Can you learn programming just by reading about it?",
+	"text": "",
+	"slug": "can-you-learn-programming-just-by-reading-about-it",
+	"ansCount": 1,
+	"answers": [
+		"B1rOE3Ib"
+	],
+	"__v": 1
+},
+{
+	"_id": "rJ9nBhLZ",
+	"updatedAt": {
+		"$date": "2016-05-03T23:35:13.589Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:35:13.589Z"
+	},
+	"user": "martin-exley",
+	"title": "Is it good to a quit job to learn programming?",
+	"text": "Currently I am working with one of IT MNC. No such a technical work here.\nI am good with shell scripting and started learning Python as well. But due to 24*7 support and continuous changes in shifts, I hardly get a chance to study. Tried comprising sleeping time and it caused an issue. I study 1-2hrs every day, but  can't concentrate and always feel sleepy. I am getting frustrated.\nMore important is, I have no interest in this work at all.\nWhat I am planning is to take 4-5 months break so I can these stuffs with dedication.",
+	"slug": "is-it-good-to-a-quit-job-to-learn-programming",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "SJkYI3IW",
+	"updatedAt": {
+		"$date": "2016-05-03T23:38:31.468Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:38:31.468Z"
+	},
+	"user": "ter-jones",
+	"title": "How should I start learning Python?",
+	"text": "",
+	"slug": "how-should-i-start-learning-python",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+},
+{
+	"_id": "BkvO_3UW",
+	"updatedAt": {
+		"$date": "2016-05-03T23:50:12.360Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:46:54.984Z"
+	},
+	"user": "steve-teller",
+	"title": "How useful is formal education in Computer Science?",
+	"text": "I often hear people in the software industry saying formal education is not of much use and experience is all that matters. Is it true that formal education in CS will not equip us enough to solve real world problems?\n\nWhat will a degree in CS teach you?\n\nWhat will working in the CS industry teach you?",
+	"slug": "how-useful-is-formal-education-in-computer-science",
+	"ansCount": 1,
+	"answers": [
+		"BJnEtn8Z"
+	],
+	"__v": 1
+},
+{
+	"_id": "ByNT53I-",
+	"updatedAt": {
+		"$date": "2016-05-03T23:59:21.633Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-03T23:56:43.629Z"
+	},
+	"user": "matt-dan",
+	"title": "Learning to Program:  What is the difference between run time error and compilation error?",
+	"text": "Give Java examples please",
+	"slug": "learning-to-program-what-is-the-difference-between-run-time-error-and-compilation-error",
+	"ansCount": 1,
+	"answers": [
+		"rJfPinUZ"
+	],
+	"__v": 1
+},
+{
+	"_id": "S1fg22Lb",
+	"updatedAt": {
+		"$date": "2016-05-04T00:01:45.909Z"
+	},
+	"createdAt": {
+		"$date": "2016-05-04T00:01:45.909Z"
+	},
+	"user": "martin-exley",
+	"title": "Do I have to know math to program?",
+	"text": "",
+	"slug": "do-i-have-to-know-math-to-program",
+	"ansCount": 0,
+	"answers": [],
+	"__v": 0
+}]
+
