@@ -7,18 +7,26 @@ import List from '../components/List'
 import Answer from '../components/Answer'
 import Question from '../components/Question'
 import NoMatch from '../components/NoMatch'
+import {withRouter} from 'react-router'
 import {getAnswers, getQuestion} from '../reducers'
 
 class Answers extends Component {
-
   static propTypes = {
+    isLoggedIn: pt.bool.isRequired,
     id: pt.string.isRequired,
     slugId: pt.string.isRequired,
     loadAnswers: pt.func.isRequired,
-    postAnswer: pt.func.isRequired
+    postAnswer: pt.func.isRequired,
+    router: pt.object.isRequired,
+    location: pt.object.isRequired
   }
 
-  componentWillMount() {
+  static requestData(props) {
+    const {params: {slugId}} = props
+    return loadAnswers(slugId, idFromSlugId(slugId))
+  }
+
+  componentDidMount() {
     const {id, slugId} = this.props
     id && this.props.loadAnswers(slugId, id)
   }
@@ -34,13 +42,17 @@ class Answers extends Component {
 
   handleSubmit = e => {
     e.preventDefault()
-    this.props.postAnswer(this.props.question, {answer: this.refs.answer.value})
+    const {isLoggedIn, postAnswer, router, location} = this.props
+    if (isLoggedIn)
+      postAnswer(this.props.question, {answer: this.refs.answer.value})
+    else
+      router.push({pathname: '/login', state: {nextPathname: location.pathname}})
   }
 
   renderAnswer = answer => <Answer {...answer} key={answer.id} />
 
   render() {
-    const {question, id, answers, pagination} = this.props
+    const {question, id, answers, pagination, isLoggedIn} = this.props
     if (!id) return <NoMatch />
 
     return (
@@ -49,12 +61,15 @@ class Answers extends Component {
         <List items={answers} className="answers"
           renderItem={this.renderAnswer} {...pagination} />
 
-        <form onSubmit={this.handleSubmit}>
-          <textarea className="panel-input" rows="8" ref="answer" placeholder="Your answer" />
-          <div>
-            <button className="panel-button" type="submit">Post Your Answer</button>
-          </div>
-        </form>
+          <form onSubmit={this.handleSubmit}>
+            <textarea className="panel-input" rows="8" ref="answer"
+              placeholder="Your answer" disabled={!isLoggedIn} />
+            <div>
+              <button className="panel-button" type="submit">
+                {isLoggedIn ? 'Post Your Answer' : 'Log in to Answer'}
+              </button>
+            </div>
+          </form>
       </div>
     )
   }
@@ -68,11 +83,12 @@ const mapStateToProps = (state, ownProps) => {
     id, slugId,
     question: getQuestion(state, id),
     answers: getAnswers(state, id),
-    pagination: state.pagination.answers.all
+    pagination: state.pagination.answers.all,
+    isLoggedIn: state.auth.isLoggedIn
   }
 }
 
 const mapDispatchToProps = dispatch =>
   bindActionCreators({loadAnswers, postAnswer}, dispatch)
 
-export default connect(mapStateToProps, mapDispatchToProps)(Answers)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(Answers))

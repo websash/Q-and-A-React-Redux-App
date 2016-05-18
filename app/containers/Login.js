@@ -1,17 +1,19 @@
-import React, {Component, PropTypes} from 'react'
+import React, {Component, PropTypes as pt} from 'react'
 import {connect} from 'react-redux'
 import {withRouter} from 'react-router'
 import LoginForm from '../components/LoginForm'
 import {loginUser} from '../actions'
+import {getCookie} from '../utils'
 
 export class Login extends Component {
-
   static propTypes = {
-    dispatch: PropTypes.func.isRequired,
-    isAuthenticated: PropTypes.bool.isRequired
+    isLoggedIn: pt.bool.isRequired,
+    router: pt.object.isRequired,
+    location: pt.object.isRequired,
+    dispatch: pt.func.isRequired
   }
 
-  componentWillMount() {
+  componentDidMount() {
     this.redirect()
   }
 
@@ -23,25 +25,26 @@ export class Login extends Component {
     this.props.dispatch(loginUser(creds))
 
   redirect() {
-    const {router, location, isAuthenticated} = this.props
-    if (isAuthenticated)
-      router.replace(location.state && location.state.nextPathname || '/')
+    const {router, location, isLoggedIn} = this.props
+    if (isLoggedIn) {
+      router.replace(location.state && location.state.nextPathname ||
+        getCookie('nextPathname') || '/')
+    }
   }
 
   render() {
-    const {isAuthenticated} = this.props
+    const {isLoggedIn} = this.props
 
     return (
       <div>
-        {!isAuthenticated && <LoginForm onSubmit={this.handleLogin} />}
+        {!isLoggedIn && <LoginForm onSubmit={this.handleLogin} />}
       </div>
     )
   }
 }
 
-const mapStateToProps = state => ({
-  isAuthenticated: state.auth.isAuthenticated,
-  prevPath: state.auth.prevPath
+const mapStateToProps = (state) => ({
+  isLoggedIn: state.auth.isLoggedIn
 })
 
 export default withRouter(connect(mapStateToProps)(Login))

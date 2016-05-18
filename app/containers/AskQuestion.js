@@ -1,13 +1,14 @@
 import React, {Component, PropTypes as pt} from 'react'
 import {bindActionCreators} from 'redux'
 import {connect} from 'react-redux'
+import {withRouter} from 'react-router'
 import {postQuestion} from '../actions'
 
 export class AskForm extends Component {
-
   static propTypes = {
-    isAuthenticated: pt.bool,
+    isLoggedIn: pt.bool.isRequired,
     postQuestion: pt.func.isRequired,
+    router: pt.object,
     location: pt.object
   }
 
@@ -16,10 +17,11 @@ export class AskForm extends Component {
   }
 
   redirect() {
-    const {location, isAuthenticated} = this.props
-    const {router} = this.context
-    if (isAuthenticated)
+    const {router, location, isLoggedIn} = this.props
+    if (isLoggedIn)
       router.replace(location.state && location.state.nextPathname || '/')
+    else
+      router.replace('/')
   }
 
   handleSubmit = e => {
@@ -39,7 +41,7 @@ export class AskForm extends Component {
             ref="title" placeholder="What's your question?" />
 
           <br /><br />
-          <textarea className="panel-input" rows="10"
+          <textarea className="panel-input" rows="8"
             ref="text" placeholder="Your question details" />
 
           <br />
@@ -50,12 +52,12 @@ export class AskForm extends Component {
   }
 }
 
-AskForm.contextTypes = {
-  router: pt.object.isRequired
-}
+const mapStateToProps = state => ({
+  isLoggedIn: state.auth.isLoggedIn
+})
 
 const mapDispatchToProps = dispatch => bindActionCreators({
   postQuestion
 }, dispatch)
 
-export default connect(null, mapDispatchToProps)(AskForm)
+export default withRouter(connect(mapStateToProps, mapDispatchToProps)(AskForm))
