@@ -4,6 +4,10 @@
   "env": {
     "browser" : true
   },
+  "globals": {
+    "__DEV__": true,
+    "__SSR__": true
+  },
   "rules": {
   	"semi": [2, "never"],
   	"curly": [2, "multi-or-nest", "consistent"],
