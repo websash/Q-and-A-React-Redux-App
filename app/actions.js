@@ -2,8 +2,9 @@ import {API_ROOT, CALL_API, Schemas} from './middleware/api'
 import * as t from './constants'
 import fetch from 'isomorphic-fetch'
 import {push} from 'react-router-redux'
+import {setCookie} from './utils'
 
-export function fetchQuestions(filter, nextPageUrl) {
+export function fetchQuestions(filter = 'all', nextPageUrl) {
   return {
     [CALL_API]: {
       types: [t.QUESTIONS_REQUEST, t.QUESTIONS_SUCCESS, t.QUESTIONS_FAILURE],
@@ -116,16 +117,16 @@ export const handleError = dispatch => err => {
 // ==================================== auth =====================================
 
 function requestLogin() {
-  return {type: t.LOGIN_REQUEST, isFetching: true, isAuthenticated: false}
+  return {type: t.LOGIN_REQUEST, isFetching: true, isLoggedIn: false}
 }
 
 function receiveLogin(usertoken, username) {
-  return {type: t.LOGIN_SUCCESS, isFetching: false, isAuthenticated: true,
+  return {type: t.LOGIN_SUCCESS, isFetching: false, isLoggedIn: true,
     usertoken, username}
 }
 
 function loginError() {
-  return {type: t.LOGIN_FAILURE, isFetching: false, isAuthenticated: false}
+  return {type: t.LOGIN_FAILURE, isFetching: false, isLoggedIn: false}
 }
 
 export function loginUser(creds) {
@@ -146,9 +147,10 @@ export function loginUser(creds) {
           dispatch(loginError(response.status))
           return Promise.reject(json)
         }
-        localStorage.setItem('usertoken', json.usertoken)
-        localStorage.setItem('username', json.username)
-        return dispatch(receiveLogin(json.usertoken, json.username))
+        const {usertoken, username, exp} = json
+        localStorage.setItem('usertoken', usertoken)
+        setCookie('username', username, {path: '/', expires: new Date(exp * 1000)})
+        return dispatch(receiveLogin(usertoken, username))
       })
       .catch(handleError(dispatch))
   }
@@ -158,7 +160,7 @@ export function logoutUser() {
   return dispatch => {
     dispatch({type: t.LOGOUT_REQUEST})
     localStorage.removeItem('usertoken')
-    localStorage.removeItem('username')
+    setCookie('username', '', {path: '/', expires: -1})
     dispatch({type: t.LOGOUT_SUCCESS})
   }
 }
