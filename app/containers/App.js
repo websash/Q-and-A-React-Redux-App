@@ -4,12 +4,12 @@ import {connect} from 'react-redux'
 import NavLink from '../components/NavLink'
 import ErrorMessages from './ErrorMessages'
 import {logoutUser} from '../actions'
-import {pluralize} from '../utils'
+import {pluralize, getFilter} from '../utils'
 
 export class App extends Component {
 
   static propTypes = {
-    isAuthenticated: pt.bool.isRequired,
+    isLoggedIn: pt.bool.isRequired,
     count: pt.number,
     username: pt.string,
     logoutUser: pt.func,
@@ -22,14 +22,14 @@ export class App extends Component {
   }
 
   render() {
-    const {count, isAuthenticated, username, children} = this.props
+    const {count, isLoggedIn, username, children} = this.props
 
     return (
       <div>
         <div className="top-bar container">
           <div className="content">
             <div className="user-bar">
-            {isAuthenticated
+            {isLoggedIn
               ? <div className="user-bar-inner">
                   <Link to={`/users/${username}`}>Hi, {username}!</Link>
                   <Link to="/" onClick={this.handleLogout}>Log out</Link>
@@ -56,8 +56,8 @@ export class App extends Component {
                 </NavLink>
                 <nav className="panel-nav">
                   <NavLink to="/" onlyActiveOnIndex>Questions</NavLink>
-                  <NavLink to="/questions/show/answered">Answered</NavLink>
-                  <NavLink to="/questions/show/unanswered">Unanswered</NavLink>
+                  <NavLink to="/answered">Answered</NavLink>
+                  <NavLink to="/unanswered">Unanswered</NavLink>
                   <NavLink to="/questions/ask">Ask Question</NavLink>
                 </nav>
               </div>
@@ -75,11 +75,13 @@ export class App extends Component {
   }
 }
 
-const mapStateToProps = (state, ownProps) => ({
-  count: state.meta[ownProps.params.filter || 'all'] &&
-    state.meta[ownProps.params.filter || 'all'].count,
-  isAuthenticated: state.auth.isAuthenticated,
-  username: state.auth.username
-})
+const mapStateToProps = (state, ownProps) => {
+  const filter = getFilter(ownProps.location.pathname)
+  return {
+    count: state.meta[filter] && state.meta[filter].count,
+    isLoggedIn: state.auth.isLoggedIn,
+    username: state.auth.username
+  }
+}
 
 export default connect(mapStateToProps, {logoutUser})(App)

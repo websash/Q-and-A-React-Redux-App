@@ -3,7 +3,6 @@ import {connect} from 'react-redux'
 import {fetchUser} from '../actions'
 
 class User extends Component {
-
   static propTypes = {
     user: pt.shape({
       id: pt.string.isRequired,
@@ -14,7 +13,11 @@ class User extends Component {
     params: pt.object.isRequired
   }
 
-  componentWillMount() {
+  static requestData({params}) {
+    return fetchUser(params.username)
+  }
+
+  componentDidMount() {
     const {params} = this.props
     this.props.fetchUser(params.username)
   }

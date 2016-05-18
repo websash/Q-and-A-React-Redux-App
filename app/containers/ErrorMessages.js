@@ -5,7 +5,6 @@ import Message from '../components/Message'
 import ReactCSSTransitionGroup from 'react/lib/ReactCSSTransitionGroup'
 
 export class ErrorMessages extends Component {
-
   static propTypes = {
     errors: pt.object.isRequired,
     dispatch: pt.func.isRequired

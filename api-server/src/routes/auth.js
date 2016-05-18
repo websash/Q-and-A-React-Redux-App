@@ -17,10 +17,13 @@ export default ({api}) => {
       const isValidPw = await user.checkPassword(body.password)
       if (!isValidPw) ctx.throw(401, 'Wrong username or password. Login failed')
 
+      const usertoken = jwt.sign(
+        {username: body.username, role: 'user'}, JWT_KEY, {expiresIn: '1h'}
+      )
+
       ctx.status = 200
       ctx.body = {
-        usertoken: jwt.sign({username: body.username, role: 'user'}, JWT_KEY),
-        username: body.username
+        usertoken, username: body.username, exp: jwt.decode(usertoken).exp
       }
     } catch (err) {
       ctx.throw(400, err)

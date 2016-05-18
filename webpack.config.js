@@ -1,20 +1,12 @@
 const webpack = require('webpack')
+const path = require('path')
 const merge = require('webpack-merge')
-const HtmlWebpackPlugin = require('html-webpack-plugin')
 const ExtractTextPlugin = require('extract-text-webpack-plugin')
 const CleanPlugin = require('clean-webpack-plugin')
 const pkg = require('./package.json')
 const TARGET = process.env.npm_lifecycle_event
 
 const common = {
-  entry: {
-    app: './app/index.js'
-  },
-  output: {
-    path: 'build',
-    filename: '[name].js',
-    publicPath: '/'
-  },
   module: {
     loaders: [{
       test: /\.jsx?$/,
@@ -25,18 +17,20 @@ const common = {
         presets: ['es2015', 'react', 'stage-1']
       }
     }]
-  },
-  plugins: [
-    new HtmlWebpackPlugin({
-      template: 'app/index.ejs',
-      favicon: 'app/static/favicon.ico',
-      inject: false
-    })
-  ]
+  }
 }
 
 if (TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
+    entry: [
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      './app/index.js'
+    ],
+    output: {
+      path: path.join(__dirname, 'build'),
+      filename: '[name].js',
+      publicPath: '/'
+    },
     devtool: 'eval-source-map',
     devServer: {
       historyApiFallback: true,
@@ -55,26 +49,27 @@ if (TARGET === 'start' || !TARGET) {
       }]
     },
     plugins: [
-      new webpack.HotModuleReplacementPlugin()
+      new webpack.optimize.OccurenceOrderPlugin(),
+      new webpack.HotModuleReplacementPlugin(),
+      new webpack.NoErrorsPlugin()
     ]
   })
 }
 
-if (TARGET === 'build' || TARGET === 'start:prod') {
+if (TARGET === 'build') {
   module.exports = merge(common, {
     entry: {
       app: './app/index.js',
       react: ['react', 'react-dom'],
-      vendor: Object.keys(pkg.dependencies).filter(d =>
-        d !== 'react' && d !== 'react-dom'
-      ),
+      vendor: Object.keys(pkg.dependencies)
+        .filter(d => d !== 'react' && d !== 'react-dom'),
       style: './app/styles/main.css'
     },
     output: {
-      path: 'build',
+      path: path.join(__dirname, 'build'),
       filename: '[name].[chunkhash].js',
       chunkFilename: '[chunkhash].js',
-      publicPath: '/'
+      publicPath: '../build'
     },
     module: {
       loaders: [{
@@ -85,6 +80,7 @@ if (TARGET === 'build' || TARGET === 'start:prod') {
     },
     plugins: [
       new CleanPlugin('build', {verbose: false}),
+      new webpack.optimize.OccurenceOrderPlugin(),
       new ExtractTextPlugin('[name].[chunkhash].css'),
       new webpack.DefinePlugin({
         'process.env.NODE_ENV': '"production"'
@@ -97,7 +93,23 @@ if (TARGET === 'build' || TARGET === 'start:prod') {
         compress: {
           warnings: false
         }
-      })
+      }),
+      function () {
+        this.plugin('done', function (stats) {
+          const assets = stats.toJson().assetsByChunkName
+
+          const appScripts = Object.keys(assets)
+            .filter(k => k !== 'style').map(k => `/${assets[k]}`)
+
+          const appStyle = `/${Object.keys(assets)
+            .filter(k => k === 'style').map(k => assets[k])[0]
+            .find(asset => /\.css$/.test(asset))}`
+
+          require('fs').writeFileSync(
+            path.join(__dirname, 'build', 'assets.json'),
+            JSON.stringify({appStyle, appScripts}, null, 2))
+        })
+      }
     ]
   })
 }

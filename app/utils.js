@@ -13,6 +13,51 @@ export function idFromSlugId(slugId) {
   return match && match[1] || null
 }
 
+export function getFilter(pathname) {
+  let filter = 'all'
+  try {
+    filter = pathname.match(/^\/(answered|unanswered)/)[1]
+  } catch (_) {}
+  return filter
+}
+
 export function pluralize(count, singular, plural) {
   return count === 1 ? singular : plural && plural || `${singular}s`
+}
+
+export function setCookie(name, value, options = {}) {
+  let expires = options.expires
+
+  if (expires && typeof expires === 'number') {
+    const d = new Date()
+    d.setTime(d.getTime() + expires * 1000)
+    expires = options.expires = d
+  }
+
+  if (expires && expires.toUTCString)
+    options.expires = expires.toUTCString()
+
+  value = encodeURIComponent(value)
+
+  let updatedCookie = `${name}=${value}`
+
+  for (var propName in options) {
+    updatedCookie += `; ${propName}`
+    const propValue = options[propName]
+    if (propValue !== true)
+      updatedCookie += `=${propValue}`
+  }
+
+  document.cookie = updatedCookie
+}
+
+export function getCookie(name) {
+  try {
+    const matches = document.cookie.match(new RegExp(
+      '(?:^|; )' + name.replace(/([\.$?*|{}\(\)\[\]\\\/\+^])/g, '\\$1') + '=([^;]*)'
+    ))
+    return matches ? decodeURIComponent(matches[1]) : undefined
+  } catch (_) {
+    return undefined
+  }
 }

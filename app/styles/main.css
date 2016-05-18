@@ -76,6 +76,9 @@ body {
     font: 1em 'Raleway', Helvetica, Arial, sans-serif;
     line-height: 1.5;
 }
+.panel-input[disabled] {
+    background-color: #eee;
+}
 .panel-button {
     border: 2px solid transparent;
     background: #a8a9a8;

@@ -29,8 +29,12 @@ function callApi(endpoint, schema, authenticated, method, body) {
       ? API_ROOT + (endpoint.substr(0, 1) === '/' ? endpoint.substr(1) : endpoint)
       : endpoint
 
+  let token
   let fetchConf = {}
-  const token = localStorage.getItem('usertoken') || null
+
+  try {
+    token = localStorage.getItem('usertoken') || null
+  } catch (err) {}
 
   if (authenticated) {
     if (!token)

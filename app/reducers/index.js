@@ -1,7 +1,7 @@
 import * as t from '../constants'
 import {combineReducers} from 'redux'
+// import {routerReducer as routing} from 'react-router-redux'
 import merge from 'lodash/merge'
-import {routerReducer} from 'react-router-redux'
 import auth from './auth'
 import errors from './errors'
 import paginate from './paginate'
@@ -59,7 +59,7 @@ function meta(state = {}, action) {
 }
 
 export default combineReducers({
-  entities, pagination, auth, user, meta, errors, scrollPosition, routing: routerReducer
+  entities, pagination, auth, user, meta, errors, scrollPosition//, routing
 })
 
 export const getQuestion = (state, id) => state.entities.questions[id]

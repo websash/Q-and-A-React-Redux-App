@@ -6,15 +6,19 @@
   <link rel="shortcut icon" href="/favicon.ico">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link href='https://fonts.googleapis.com/css?family=Lato:400,700,300' rel='stylesheet'>
-  <% for (var css in htmlWebpackPlugin.files.css) { %>
-  <link href="<%= htmlWebpackPlugin.files.css[css] %>" rel="stylesheet">
-  <% } %>
+<% if (appStyle) { -%>
+  <link href="<%= appStyle %>" rel="stylesheet">
+<% } -%>
 </head>
 <body>
-  <div id="app"></div>
-  <% for (var chunk in htmlWebpackPlugin.files.chunks) {
-      if (/^style/.test(chunk)) continue %>
-      <script src="<%= htmlWebpackPlugin.files.chunks[chunk].entry %>"></script>
-  <% } %>
+  <div id="app"><%- appHtml %></div>
+<% if (appState) { %>
+  <script type="text/javascript" charset="utf-8">
+    window.__APP_STATE__ = '<%= appState %>'
+  </script>
+<% } -%>
+<% appScripts.forEach(function(src) { -%>
+  <script src="<%= src %>"></script>
+<% }) -%>
 </body>
 </html>

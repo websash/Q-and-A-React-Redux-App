@@ -1,22 +1,29 @@
-import React, {Component} from 'react'
+import React, {Component, PropTypes as pt} from 'react'
 import {connect} from 'react-redux'
 import {loadQuestions, updateScrollPos} from '../actions'
 import Question from '../components/Question'
 import List from '../components/List'
+import {getFilter} from '../utils'
 
 class Questions extends Component {
-  componentWillMount() {
-    const {params} = this.props
-    this.props.loadQuestions(params.filter)
+  static propTypes = {
+    filter: pt.string.isRequired,
+    loadQuestions: pt.func.isRequired
+  }
+
+  static requestData({location}) {
+    return loadQuestions(getFilter(location.pathname))
   }
 
   componentDidMount() {
     window.scrollTo(0, this.props.scrollPosition)
+    const {loadQuestions, filter} = this.props
+    loadQuestions(filter)
   }
 
   componentWillReceiveProps(nextProps) {
-    if (nextProps.params.filter !== this.props.params.filter)
-      !this.props.isFetching && this.props.loadQuestions(nextProps.params.filter)
+    if (nextProps.filter !== this.props.filter)
+      !this.props.isFetching && this.props.loadQuestions(nextProps.filter)
   }
 
   componentWillUnmount() {
@@ -24,7 +31,7 @@ class Questions extends Component {
   }
 
   handleLoadMore = () =>
-    this.props.loadQuestions(this.props.params.filter, true)
+    this.props.loadQuestions(this.props.filter, true)
 
   renderQuestion = question =>
     <Question condensed {...question} key={question.id} />
@@ -41,13 +48,11 @@ class Questions extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const {filter = 'all'} = ownProps.params
-  const {
-    entities: {questions},
-    pagination
-  } = state
+  const filter = getFilter(ownProps.location.pathname)
+  const {entities: {questions}, pagination} = state
 
   return {
+    filter,
     questions: pagination.questions[filter] &&
       pagination.questions[filter].ids.map(id => questions[id]) || [],
     pagination: pagination.questions[filter],
