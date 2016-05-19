@@ -12,7 +12,7 @@ const Message = ({type, text, counter, onDismissMessage}) =>
     <div className="grid stretch">
       <div>
         {counter && counter > 1 && `${counter}) `}
-        {type && <span className="type">{type}: </span>} {text}
+        {/* type && <span className="type">{type}: </span> */} {text}
       </div>
       <span className="btn-x" onClick={_ => onDismissMessage(text)}>&times;</span>
     </div>

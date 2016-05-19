@@ -10,6 +10,12 @@ export class ErrorMessages extends Component {
     dispatch: pt.func.isRequired
   }
 
+  componentDidMount() {
+    const {errors, dispatch} = this.props
+    Object.keys(errors).map(message =>
+      setTimeout(_ => dispatch({type: DISMISS_MESSAGE, message}), 5000))
+  }
+
   handleDismissMsg = message => {
     this.props.dispatch({type: DISMISS_MESSAGE, message})
   }
