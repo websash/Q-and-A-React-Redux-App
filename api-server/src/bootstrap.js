@@ -4,6 +4,8 @@ import {API_ROOT, JWT_KEY} from './config'
 import routes from './routes'
 import cors from 'kcors'
 import jwt from 'koa-jwt'
+import redis from 'redis'
+import ratelimit from './middleware/ratelimit'
 const convert = require('koa-convert')
 
 const app = new Koa()
@@ -14,7 +16,7 @@ app.use(async function logger(ctx, next) {
   const start = new Date()
   await next()
   const ms = new Date() - start
-  console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
+  console.log(`[${ctx.status}] ${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
 app.use(async function errorHandler(ctx, next) {
@@ -29,6 +31,12 @@ app.use(async function errorHandler(ctx, next) {
 
 app.use(cors({
   exposeHeaders: ['Link', 'Location']
+}))
+
+app.use(ratelimit({
+  db: redis.createClient(),
+  duration: 60000,
+  max: 60
 }))
 
 app.use(

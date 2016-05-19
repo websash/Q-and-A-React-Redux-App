@@ -21,9 +21,12 @@
     "koa-jwt": "^1.2.0",
     "koa-router": "^7.0.1",
     "mongoose": "^4.4.12",
+    "ms": "^0.7.1",
     "query-string": "^4.1.0",
+    "redis": "^2.6.0-2",
     "shortid": "^2.2.6",
-    "slug": "^0.9.1"
+    "slug": "^0.9.1",
+    "thenify": "^3.2.0"
   },
   "devDependencies": {
     "babel-cli": "^6.7.5",
