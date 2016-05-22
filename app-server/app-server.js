@@ -78,11 +78,7 @@ server.set('views', path.join(__dirname, '../app'))
 
       if (!requestData) render(props)()
 
-      if (typeof requestData === 'object')
-        store.dispatch(requestData).then(render(props)).catch(next)
-
-      if (typeof requestData === 'function')
-        requestData(store.dispatch, store.getState).then(render(props)).catch(next)
+      store.dispatch(requestData).then(render(props)).catch(next)
 
     } else {
       res.status(404).send('Not found')
