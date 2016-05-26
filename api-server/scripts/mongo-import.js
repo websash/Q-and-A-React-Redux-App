@@ -4,7 +4,7 @@ const exec = require('child_process').exec
 
 const db = 'q_and_a'
 const host = 'localhost'
-const dir = 'db'
+const dir = 'fixtures'
 
 fs.readdir('./db', (err, files) => {
   if (err) throw new Error(err)

@@ -1,0 +1,36 @@
+version: '2'
+services:
+  api:
+    build: api-server
+    ports:
+      - '4000:4000'
+    depends_on:
+      - mongo
+    environment:
+      - MONGO_HOST=mongo
+      - API_ROOT=http://q-and-a.loc/api/
+    extra_hosts:
+      - q-and-a.loc:192.168.99.100
+  app:
+    build: .
+    ports:
+      - '8080:8080'
+    depends_on:
+      - api
+    environment:
+      - HOST=q-and-a.loc
+      - API_ROOT=http://q-and-a.loc/api/
+    extra_hosts:
+      - q-and-a.loc:192.168.99.100
+  mongo:
+    image: mongo:3.2.6
+    volumes:
+      - ./api-server/dump:/tmp/dump
+  nginx:
+    build: nginx
+    volumes:
+      - ./nginx/log:/var/log/nginx
+      - ./nginx/ssl:/etc/nginx/ssl
+    ports:
+      - '80:80'
+      - '443:443'

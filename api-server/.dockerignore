@@ -2,6 +2,5 @@
 .eslintcache
 node_modules
 npm-debug.log
-build
-nginx/log
-nginx/ssl
+fixtures
+dump

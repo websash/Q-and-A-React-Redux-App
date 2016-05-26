@@ -6,7 +6,7 @@
   "scripts": {
     "lint": "eslint . --ext .js --ignore-path .gitignore --cache",
     "start": "NODE_ENV=development node app-server",
-    "build": "webpack",
+    "build": "NODE_ENV=production webpack",
     "start:production": "NODE_ENV=production node app-server"
   },
   "author": "Alexander Fomin",

@@ -2,6 +2,6 @@
 .eslintcache
 node_modules
 npm-debug.log
+api-server
 build
-nginx/log
-nginx/ssl
+nginx

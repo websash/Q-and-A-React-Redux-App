@@ -1,6 +1,6 @@
 import Koa from 'koa'
 import Router from 'koa-router'
-import {API_ROOT, JWT_KEY} from './config'
+import {HOSTNAME, PORT, JWT_KEY} from './config'
 import routes from './routes'
 import cors from 'kcors'
 import jwt from 'koa-jwt'
@@ -38,5 +38,5 @@ app.use(
 app.use(api.allowedMethods())
 
 export default () =>
-  app.listen(4000, () =>
-    console.info(`👀  Q&A API server running at ${API_ROOT}`))
+  app.listen(PORT, () =>
+    console.info(`👀  Q&A API server running at ${HOSTNAME}:${PORT}`))

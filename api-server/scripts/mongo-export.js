@@ -2,7 +2,7 @@ const exec = require('child_process').exec
 
 const db = 'q_and_a'
 const host = 'localhost'
-const dir = 'db'
+const dir = 'fixtures'
 
 const p = exec(`mongo ${db} --quiet --eval "print(db.getCollectionNames())"`)
 

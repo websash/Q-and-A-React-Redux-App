@@ -2,7 +2,7 @@ import {Schema, arrayOf, normalize} from 'normalizr'
 import {getPageUrl} from '../utils'
 import {handleError} from '../actions'
 
-export const API_ROOT = 'http://localhost:4000/'
+export const API_ROOT = process.env.API_ROOT
 export const CALL_API = Symbol('Call API')
 
 

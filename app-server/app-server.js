@@ -18,6 +18,7 @@ global.__SSR__ = true
 
 const server = new Express()
 const PORT = process.env.PORT || 8080
+const HOSTNAME = process.env.HOSTNAME || 'localhost'
 const appStyle = __DEV__ ? null : require('../build/assets.json').appStyle
 const appScripts = __DEV__ ? ['/main.js'] : require('../build/assets.json').appScripts
 const compiler = webpack(webpackConfig)
@@ -88,5 +89,5 @@ server.set('views', path.join(__dirname, '../app'))
 
 .listen(PORT, () => {
   console.log(`👀  Application ${__DEV__ ?
-    'development' : 'production'} server running at localhost:${PORT}`)
+    'development' : 'production'} server running at ${HOSTNAME}:${PORT}`)
 })

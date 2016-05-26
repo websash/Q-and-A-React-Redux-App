@@ -49,6 +49,9 @@ if (TARGET === 'start' || !TARGET) {
       }]
     },
     plugins: [
+      new webpack.DefinePlugin({
+        'process.env.API_ROOT': `"${process.env.API_ROOT || 'http://localhost:4000/'}"`
+      }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new webpack.HotModuleReplacementPlugin(),
       new webpack.NoErrorsPlugin()
@@ -80,11 +83,12 @@ if (TARGET === 'build') {
     },
     plugins: [
       new CleanPlugin('build', {verbose: false}),
+      new webpack.DefinePlugin({
+        'process.env.NODE_ENV': '"production"',
+        'process.env.API_ROOT': `"${process.env.API_ROOT || 'http://localhost:4000/'}"`
+      }),
       new webpack.optimize.OccurenceOrderPlugin(),
       new ExtractTextPlugin('[name].[chunkhash].css'),
-      new webpack.DefinePlugin({
-        'process.env.NODE_ENV': '"production"'
-      }),
       new webpack.optimize.DedupePlugin(),
       new webpack.optimize.CommonsChunkPlugin({
         names: ['react', 'vendor', 'manifest']
