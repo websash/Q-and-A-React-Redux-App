@@ -158,11 +158,11 @@ input:focus, textarea:focus, button:focus {
     color: #888;
     border-bottom: 1px solid #aaa;
 }
-time {
+.meta {
     display: block;
     line-height: 1;
 }
-time, .list li:before {
+.meta, .list li:before {
     color: #969692;
     font-weight: 300;
     font-size: 0.8em;
@@ -200,7 +200,7 @@ time, .list li:before {
     padding: 1em 0 0;
 }
 .list.questions .avatar {
-    margin: 0 .5em .3em 0;
+    margin: .25em .5em 0 0;
 }
 .list.answers li {
     padding: .5em 0

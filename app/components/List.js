@@ -7,7 +7,7 @@ const propTypes = {
   renderItem: pt.func.isRequired,
   className: pt.string,
   items: pt.array.isRequired,
-  isFetching: pt.bool.isRequired,
+  isFetching: pt.bool,
   nextPageUrl: pt.string,
   onLoadMore: pt.func
 }
@@ -45,11 +45,10 @@ export default class List extends Component {
 
   render() {
     const {isFetching, items, renderItem, className} = this.props
-    const isEmpty = items.length === 0
 
     return (
       <ol className={classNames('list', className)}>
-        {!isEmpty && items.map((item, i) => renderItem(item, i))}
+        {items && items.map((item, i) => renderItem(item, i))}
         <Spinner active={isFetching} />
         {/* pageCount > 0 && nextPageUrl && this.renderLoadMoreBtn() */}
       </ol>

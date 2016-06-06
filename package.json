@@ -5,9 +5,18 @@
   "main": "index.js",
   "scripts": {
     "lint": "eslint . --ext .js --ignore-path .gitignore --cache",
-    "start": "NODE_ENV=development node app-server",
+    "test": "ava",
+    "test:watch": "npm test -s -- --watch",
+    "start": "NODE_ENV=development API_ROOT=http://localhost:4000/ node app-server",
     "build": "NODE_ENV=production webpack",
     "start:production": "NODE_ENV=production node app-server"
+  },
+  "ava": {
+    "files": ["app/**/*.spec.js"],
+    "source": ["app/**/*.js"],
+    "verbose": true,
+    "require": ["babel-register", "./browser-env"],
+    "babel": "inherit"
   },
   "author": "Alexander Fomin",
   "license": "MIT",
@@ -24,6 +33,7 @@
     "redux-thunk": "^2.0.1"
   },
   "devDependencies": {
+    "ava": "^0.15.2",
     "babel-core": "^6.8.0",
     "babel-eslint": "^6.0.4",
     "babel-loader": "^6.2.2",
@@ -48,7 +58,9 @@
     "express": "^4.13.4",
     "express-noop": "^1.1.0",
     "extract-text-webpack-plugin": "^1.0.1",
+    "jsdom": "^9.2.1",
     "lodash": "^4.11.1",
+    "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
     "webpack-dev-middleware": "^1.6.1",

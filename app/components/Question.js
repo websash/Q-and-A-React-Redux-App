@@ -25,7 +25,9 @@ const Question = ({user, link, title, ansCount, createdAt, created, text, conden
           <h3>
             <Link to={link}>{title}</Link>
           </h3>
-          <time dateTime={createdAt}><b className="ans">{ansCount} ans.</b> {created}</time>
+          <div className="meta">
+            <b className="ans">{`${ansCount} ans.`}</b> <time dateTime={createdAt}>{created}</time>
+          </div>
         </div>
         <div className="usermeta">
           <Link className="avatar" to={`/users/${user.id}`}>

@@ -10,9 +10,9 @@ const propTypes = {
 const Message = ({type, text, counter, onDismissMessage}) =>
   <li className="error-message">
     <div className="grid stretch">
-      <div>
+      <div className="msg">
         {counter && counter > 1 && `${counter}) `}
-        {/* type && <span className="type">{type}: </span> */} {text}
+        {/* type && <span className="type">{type}: </span> */}{text}
       </div>
       <span className="btn-x" onClick={_ => onDismissMessage(text)}>&times;</span>
     </div>
