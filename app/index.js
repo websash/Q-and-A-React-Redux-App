@@ -8,6 +8,7 @@ import {Router, browserHistory} from 'react-router'
 import {Provider} from 'react-redux'
 import configureStore from './store'
 import configureRoutes from './routes'
+// import Perf from 'react-addons-perf'
 
 let appState
 try {
@@ -27,3 +28,5 @@ render(
   </Provider>,
   document.getElementById('app')
 )
+
+// if (process.env.NODE_ENV !== 'production') window.Perf = Perf

@@ -48,7 +48,7 @@ export default class List extends Component {
 
     return (
       <ol className={classNames('list', className)}>
-        {items && items.map((item, i) => renderItem(item, i))}
+        {items && items.map(renderItem)}
         <Spinner active={isFetching} />
         {/* pageCount > 0 && nextPageUrl && this.renderLoadMoreBtn() */}
       </ol>

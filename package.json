@@ -12,10 +12,17 @@
     "start:production": "NODE_ENV=production node app-server"
   },
   "ava": {
-    "files": ["app/**/*.spec.js"],
-    "source": ["app/**/*.js"],
+    "files": [
+      "app/**/*.spec.js"
+    ],
+    "source": [
+      "app/**/*.js"
+    ],
     "verbose": true,
-    "require": ["babel-register", "./browser-env"],
+    "require": [
+      "babel-register",
+      "./browser-env"
+    ],
     "babel": "inherit"
   },
   "author": "Alexander Fomin",
@@ -60,6 +67,7 @@
     "extract-text-webpack-plugin": "^1.0.1",
     "jsdom": "^9.2.1",
     "lodash": "^4.11.1",
+    "react-addons-perf": "^15.1.0",
     "sinon": "^1.17.4",
     "style-loader": "^0.13.1",
     "webpack": "^1.13.0",
