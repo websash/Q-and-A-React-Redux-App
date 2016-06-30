@@ -1,4 +1,4 @@
 {
-  "presets": ["es2015-node6", "react", "stage-1"],
+  "presets": ["es2015", "react", "stage-1"],
   "plugins": ["transform-async-to-generator"]
 }

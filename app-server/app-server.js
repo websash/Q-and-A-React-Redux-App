@@ -37,7 +37,7 @@ server.set('views', path.join(__dirname, '../app'))
 )
 .use(slashes(false))
 .use(cookieParser())
-.use(compression())
+.use(__DEV__ ? noop() : compression())
 
 .get('*', (req, res, next) => {
   if (__SSR__ === false) {
@@ -77,7 +77,10 @@ server.set('views', path.join(__dirname, '../app'))
         requestData = component.requestData(props)
       } catch (_) {}
 
-      if (!requestData) render(props)()
+      if (!requestData) {
+        render(props)()
+        return
+      }
 
       store.dispatch(requestData).then(render(props)).catch(next)
 

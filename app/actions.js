@@ -1,60 +1,94 @@
-import {API_ROOT, CALL_API, Schemas} from './middleware/api'
+import {API_ROOT, CALL_API, Schemas, Canceller} from './middleware/api'
 import * as t from './constants'
 import fetch from 'isomorphic-fetch'
 import {push} from 'react-router-redux'
 import {setCookie} from './utils'
+import qs from 'query-string'
 
-export function fetchQuestions(filter = 'all', nextPageUrl) {
-  return {
-    [CALL_API]: {
-      types: [t.QUESTIONS_REQUEST, t.QUESTIONS_SUCCESS, t.QUESTIONS_FAILURE],
-      endpoint: nextPageUrl,
-      filter,
-      schema: Schemas.QUESTION_ARRAY
-    }
+export const fetchQuestions = (filter = 'all', nextPageUrl, isNextPage = false) => ({
+  [CALL_API]: {
+    types: [t.QUESTIONS_REQUEST, t.QUESTIONS_SUCCESS, t.QUESTIONS_FAILURE],
+    filter,
+    isNextPage,
+    endpoint: nextPageUrl,
+    schema: Schemas.QUESTION_ARRAY
   }
-}
+})
 
-export function loadQuestions(filter = 'all', nextPage) {
+export const postQuestion = (question) => ({
+  [CALL_API]: {
+    types: [t.QUESTION_SUBMIT_REQUEST, t.QUESTION_SUBMIT_SUCCESS, t.QUESTION_SUBMIT_FAILURE],
+    authenticated: true,
+    endpoint: 'questions',
+    method: 'POST',
+    body: JSON.stringify(question),
+    schema: Schemas.QUESTION,
+    done: dispatch => dispatch(push('/'))
+  }
+})
+
+export const fetchAnswers = (endpoint) => ({
+  [CALL_API]: {
+    types: [t.ANSWERS_REQUEST, t.ANSWERS_SUCCESS, t.ANSWERS_FAILURE],
+    endpoint,
+    schema: Schemas.QUESTION
+  }
+})
+
+export const fetchUser = (username) => ({
+  [CALL_API]: {
+    types: [t.USER_REQUEST, t.USER_SUCCESS, t.USER_FAILURE],
+    endpoint: `users/${username}`,
+    schema: Schemas.USER
+  }
+})
+
+export const postAnswer = (question, answer) => ({
+  [CALL_API]: {
+    types: [t.ANSWER_SUBMIT_REQUEST, t.ANSWER_SUBMIT_SUCCESS, t.ANSWER_SUBMIT_FAILURE],
+    authenticated: true,
+    endpoint: question.link,
+    method: 'POST',
+    body: JSON.stringify(answer),
+    schema: Schemas.ANSWER_ARRAY,
+    done: dispatch => dispatch(fetchAnswers(question.link))
+  }
+})
+
+export const updateSearchQuery = (q) => ({type: t.SEARCH, q})
+
+export const purgeQuestions = (filter) => ({type: t.QUESTIONS_PURGE, filter})
+
+export const resetSearchBox = () => (dispatch, getState) => {
+  if (getState().q) dispatch(updateSearchQuery(''))
+}
+export const updateScrollPos = (scrollPosition) => ({
+  type: 'UPDATE_SCROLLPOS', scrollPosition
+})
+
+const questionsFilterEP = (filter) =>
+  filter === 'answered' ? 'questions?answered=1' :
+  filter === 'unanswered' ? 'questions?answered=0' : 'questions'
+
+const questionsSearchEP = (q) => q ? `questions?q=${q}` : 'questions'
+
+export const loadQuestions = ({filter = 'all', q}, isNextPage) => {
+  Canceller.cancel('stale')
   return (dispatch, getState) => {
-    const endpoint =
-      filter === 'answered' ? 'questions?answered=1' :
-      filter === 'unanswered' ? 'questions?answered=0' : 'questions'
+    const endpoint = q ? questionsSearchEP(q) : questionsFilterEP(filter)
 
-    const {nextPageUrl = endpoint, pageCount = 0} =
-      getState().pagination.questions[filter] || {}
+    let {nextPageUrl = endpoint, pageCount = 0} = getState().listing.questions[filter] || {}
 
-    if (pageCount > 0 && !nextPage) return null // use cache
+    if (q && nextPageUrl && qs.parse(qs.extract(nextPageUrl)).q !== q)
+      nextPageUrl = endpoint
 
-    return dispatch(fetchQuestions(filter, nextPageUrl))
+    if (!q && pageCount > 0 && !isNextPage) return null
+
+    return dispatch(fetchQuestions(filter, nextPageUrl || endpoint, isNextPage))
   }
 }
 
-export function postQuestion(question) {
-  return {
-    [CALL_API]: {
-      authenticated: true,
-      types: [t.QUESTION_SUBMIT_REQUEST, t.QUESTION_SUBMIT_SUCCESS, t.QUESTION_SUBMIT_FAILURE],
-      endpoint: 'questions',
-      method: 'POST',
-      body: JSON.stringify(question),
-      schema: Schemas.QUESTION,
-      afterAction: dispatch => dispatch(push('/'))
-    }
-  }
-}
-
-export function fetchAnswers(endpoint) {
-  return {
-    [CALL_API]: {
-      types: [t.ANSWERS_REQUEST, t.ANSWERS_SUCCESS, t.ANSWERS_FAILURE],
-      endpoint,
-      schema: Schemas.QUESTION
-    }
-  }
-}
-
-export function loadAnswers(slugId, id) {
+export const loadAnswers = (slugId, id) => {
   return (dispatch, getState) => {
     const {timestamp} = getState().entities.questions[id] || {}
     // use cache for 1 min
@@ -64,48 +98,14 @@ export function loadAnswers(slugId, id) {
   }
 }
 
-export function postAnswer(question, answer) {
-  return {
-    [CALL_API]: {
-      authenticated: true,
-      types: [t.ANSWER_SUBMIT_REQUEST, t.ANSWER_SUBMIT_SUCCESS, t.ANSWER_SUBMIT_FAILURE],
-      endpoint: question.link,
-      method: 'POST',
-      body: JSON.stringify(answer),
-      schema: Schemas.ANSWER_ARRAY,
-      afterAction: dispatch => dispatch(fetchAnswers(question.link))
-    }
-  }
-}
-
-export function fetchUser(username) {
-  return {
-    [CALL_API]: {
-      types: [t.USER_REQUEST, t.USER_SUCCESS, t.USER_FAILURE],
-      endpoint: `users/${username}`,
-      schema: Schemas.USER
-    }
-  }
-}
-
-export function updateScrollPos(scrollPosition) {
-  return {type: 'UPDATE_SCROLLPOS', scrollPosition}
-}
-
-// ==================================== err ======================================
+// ✄ ----------------------------------- err --------------------------------------
 const timeouts = {}
 
-export function showMessage(message, errType) {
-  return {type: t.SHOW_MESSAGE, message, errType}
-}
+export const showMessage = (message, errType) => ({type: t.SHOW_MESSAGE, message, errType})
 
-export function dismissMessage(message) {
-  return {type: t.DISMISS_MESSAGE, message}
-}
+export const dismissMessage = (message) => ({type: t.DISMISS_MESSAGE, message})
 
-export function dismissMessages() {
-  return {type: t.DISMISS_MESSAGES}
-}
+export const dismissMessages = () => ({type: t.DISMISS_MESSAGES})
 
 export const handleError = dispatch => err => {
   dispatch(showMessage(err.message, err.type))
@@ -114,20 +114,15 @@ export const handleError = dispatch => err => {
     setTimeout(_ => dispatch(dismissMessage(err.message)), 5000)
 }
 
-// ==================================== auth =====================================
+// ✄ ----------------------------------- auth -------------------------------------
+const requestLogin = () =>
+  ({type: t.LOGIN_REQUEST, isFetching: true, isLoggedIn: false})
 
-function requestLogin() {
-  return {type: t.LOGIN_REQUEST, isFetching: true, isLoggedIn: false}
-}
+const receiveLogin = (usertoken, username) =>
+  ({type: t.LOGIN_SUCCESS, isFetching: false, isLoggedIn: true, usertoken, username})
 
-function receiveLogin(usertoken, username) {
-  return {type: t.LOGIN_SUCCESS, isFetching: false, isLoggedIn: true,
-    usertoken, username}
-}
-
-function loginError() {
-  return {type: t.LOGIN_FAILURE, isFetching: false, isLoggedIn: false}
-}
+const loginError = () =>
+  ({type: t.LOGIN_FAILURE, isFetching: false, isLoggedIn: false})
 
 export function loginUser(creds) {
   const config = {

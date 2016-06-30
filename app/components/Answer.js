@@ -15,7 +15,7 @@ const propTypes = {
 
 const Answer = ({user, answer, createdAt, created}) =>
   <li>
-    <div className="grid">
+    <div className="grid usermeta">
       <Link className="avatar" to={`/users/${user.id}`}>
         <img src={user.avatar} alt={user.id} width="34" height="34" />
       </Link>

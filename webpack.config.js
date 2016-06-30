@@ -23,7 +23,7 @@ const common = {
 if (TARGET === 'start' || !TARGET) {
   module.exports = merge(common, {
     entry: [
-      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000',
+      'webpack-hot-middleware/client?path=/__webpack_hmr&timeout=20000&reload=true',
       './app/index.js'
     ],
     output: {

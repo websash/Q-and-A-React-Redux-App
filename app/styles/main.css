@@ -4,7 +4,7 @@
 @import './spinner.css';
 
 ul, ol { margin: 0; padding: 0; }
-h2 { font-weight: 300; }
+h2 { font-weight: 300; border-bottom: 2px dotted #bec1bf; }
 h3 { font-weight: 400; }
 a { color: #5a9bc9; outline: none; }
 a:hover { color: #5a9bc9; }
@@ -71,16 +71,22 @@ body {
 .panel-input {
     width: 100%;
     border: 2px solid #a8a9a8;
+    border-radius: 2px;
     color: #8E9191;
     padding: .25em .5em;
     font: 1em 'Raleway', Helvetica, Arial, sans-serif;
-    line-height: 1.5;
+    line-height: 1.4;
 }
+.panel-input::-webkit-input-placeholder {color: rgba(177, 177, 177, .5);}
+.panel-input:focus::-webkit-input-placeholder {color: rgba(90, 155, 201, .5);}
+.panel-input:-ms-input-placeholder {color: rgba(177, 177, 177, .5);}
+
 .panel-input[disabled] {
     background-color: #eee;
 }
 .panel-button {
     border: 2px solid transparent;
+    border-radius: 2px;
     background: #a8a9a8;
     color: #fff;
     line-height: 1;
@@ -112,12 +118,8 @@ input:focus, textarea:focus, button:focus {
 }
 .usermeta {
     color: #7d7b7b;
-    width: 185px;
     align-self: center;
-    display: inline-block;
     vertical-align: middle;
-    margin-left: 1em;
-    padding-right: .5em;
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
@@ -144,6 +146,7 @@ input:focus, textarea:focus, button:focus {
 }
 .ans {
     color: rgba(139, 140, 169, 0.8);
+    font-weight: bold;
 }
 .ans:before {
     content: "–";
@@ -162,13 +165,16 @@ input:focus, textarea:focus, button:focus {
     display: block;
     line-height: 1;
 }
-.meta, .list li:before {
+.meta, .list li:before, .usermeta time {
     color: #969692;
     font-weight: 300;
     font-size: 0.8em;
     margin-bottom: .75em;
 }
-
+.usermeta time {
+    display: block;
+    line-height: 1;
+}
 .list, .form {
     padding: .5em 0 0;
 }
@@ -197,10 +203,16 @@ input:focus, textarea:focus, button:focus {
     color: #5a9bc9;
 }
 .list.questions {
-    padding: 1em 0 0;
+    margin: 1em 0 0;
 }
 .list.questions .avatar {
     margin: .25em .5em 0 0;
+}
+.list.questions .usermeta {
+    width: 185px;
+    display: inline-block;
+    margin-left: 1em;
+    padding-right: .5em;
 }
 .list.answers li {
     padding: .5em 0

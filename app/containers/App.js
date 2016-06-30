@@ -2,15 +2,14 @@ import React, {Component, PropTypes as pt} from 'react'
 import {Link} from 'react-router'
 import {connect} from 'react-redux'
 import NavLink from '../components/NavLink'
+import QuestionsSearchBox from '../containers/QuestionsSearch'
 import ErrorMessages from './ErrorMessages'
 import {logoutUser} from '../actions'
-import {pluralize, getFilter} from '../utils'
 
 export class App extends Component {
 
   static propTypes = {
     isLoggedIn: pt.bool.isRequired,
-    count: pt.number,
     username: pt.string,
     logoutUser: pt.func,
     children: pt.node
@@ -22,7 +21,7 @@ export class App extends Component {
   }
 
   render() {
-    const {count, isLoggedIn, username, children} = this.props
+    const {isLoggedIn, username, children} = this.props
 
     return (
       <div>
@@ -51,9 +50,7 @@ export class App extends Component {
           <div className="panel-content content">
             <header className="panel-header">
               <div className="grid stretch inner-content">
-                <NavLink to="/" className="panel-logo">
-                  {count > 0 && `${count} ${pluralize(count, 'question')}`}
-                </NavLink>
+                <QuestionsSearchBox {...this.props} />
                 <nav className="panel-nav">
                   <NavLink to="/" onlyActiveOnIndex>Questions</NavLink>
                   <NavLink to="/answered">Answered</NavLink>
@@ -76,9 +73,7 @@ export class App extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const filter = getFilter(ownProps.location.pathname)
   return {
-    count: state.meta[filter] && state.meta[filter].count,
     isLoggedIn: state.auth.isLoggedIn,
     username: state.auth.username
   }

@@ -17,6 +17,11 @@ app.use(async function logger(ctx, next) {
   console.log(`${ctx.method} ${ctx.url} - ${ms}ms`)
 })
 
+// app.use(async function sleep(ctx, next) {
+//   await new Promise(resolve => setTimeout(resolve, 1000))
+//   await next()
+// })
+
 app.use(async function errorHandler(ctx, next) {
   try {
     await next()

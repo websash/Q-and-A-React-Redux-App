@@ -3,27 +3,34 @@ import {connect} from 'react-redux'
 import {loadQuestions, updateScrollPos} from '../actions'
 import Question from '../components/Question'
 import List from '../components/List'
-import {getFilter} from '../utils'
+import {pluralize as plur, getFilter} from '../utils'
+import {getQuestions} from '../reducers'
 
 class Questions extends Component {
   static propTypes = {
+    count: pt.number,
+    q: pt.string,
     filter: pt.string.isRequired,
-    loadQuestions: pt.func.isRequired
+    questions: pt.array.isRequired,
+    loadQuestions: pt.func.isRequired,
+    listing: pt.object,
+    scrollPosition: pt.number,
+    updateScrollPos: pt.func
   }
 
   static requestData({location}) {
-    return loadQuestions(getFilter(location.pathname))
+    return loadQuestions({filter: getFilter(location.pathname), q: location.query.q})
   }
 
   componentDidMount() {
     window.scrollTo(0, this.props.scrollPosition)
-    const {loadQuestions, filter} = this.props
-    loadQuestions(filter)
+    const {loadQuestions, filter, q} = this.props
+    if (!q) loadQuestions({filter, q})
   }
 
-  componentWillReceiveProps(nextProps) {
-    if (nextProps.filter !== this.props.filter)
-      !this.props.isFetching && this.props.loadQuestions(nextProps.filter)
+  componentDidUpdate(prevProps) {
+    const {filter, q, loadQuestions} = this.props
+    if (!q && filter !== prevProps.filter) loadQuestions({filter, q})
   }
 
   componentWillUnmount() {
@@ -31,31 +38,38 @@ class Questions extends Component {
   }
 
   handleLoadMore = () =>
-    this.props.loadQuestions(this.props.filter, true)
+    this.props.loadQuestions({filter: this.props.filter, q: this.props.q}, true)
 
   renderQuestion = question =>
     <Question condensed {...question} key={question.id} />
 
   render() {
-    const {questions, pagination} = this.props
+    const {count, questions, listing} = this.props
 
-    return <List items={questions}
-                 className="questions"
-                 renderItem={this.renderQuestion}
-                 onLoadMore={this.handleLoadMore}
-                 {...pagination} />
+    return <div>
+      <h2>
+        {count > 0 ? `Found ${count} ${plur(count, 'question')}` :
+          listing && listing.isFetching ? '\u00a0' :
+          count === 0 ? 'No questions found' : '\u00a0'}
+      </h2>
+      <List items={questions}
+        className="questions"
+        renderItem={this.renderQuestion}
+        onLoadMore={this.handleLoadMore}
+        {...listing} />
+    </div>
   }
 }
 
 const mapStateToProps = (state, ownProps) => {
+  const {listing, q} = state
   const filter = getFilter(ownProps.location.pathname)
-  const {entities: {questions}, pagination} = state
 
   return {
-    filter,
-    questions: pagination.questions[filter] &&
-      pagination.questions[filter].ids.map(id => questions[id]) || [],
-    pagination: pagination.questions[filter],
+    filter, q,
+    questions: getQuestions(state)(filter),
+    listing: listing.questions[filter],
+    count: state.meta[filter] && state.meta[filter].count,
     scrollPosition: state.scrollPosition
   }
 }
