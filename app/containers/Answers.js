@@ -8,7 +8,7 @@ import Answer from '../components/Answer'
 import Question from '../components/Question'
 import NoMatch from '../components/NoMatch'
 import {withRouter} from 'react-router'
-import {getAnswers, getQuestion} from '../reducers'
+import {getAnswers, getQuestionById} from '../reducers'
 
 class Answers extends Component {
   static propTypes = {
@@ -52,19 +52,19 @@ class Answers extends Component {
   renderAnswer = answer => <Answer {...answer} key={answer.id} />
 
   render() {
-    const {question, id, answers, pagination, isLoggedIn} = this.props
+    const {question, id, answers, listing, isLoggedIn} = this.props
     if (!id) return <NoMatch />
 
     return (
       <div>
         {question && <Question {...question} />}
         <List items={answers} className="answers"
-          renderItem={this.renderAnswer} {...pagination} />
+          renderItem={this.renderAnswer} {...listing} />
 
           <form onSubmit={this.handleSubmit}>
             <textarea className="panel-input" rows="8" ref="answer"
               placeholder="Your answer" disabled={!isLoggedIn} />
-            <div>
+            <div style={{marginBottom: '1.5em'}}>
               <button className="panel-button" type="submit">
                 {isLoggedIn ? 'Post Your Answer' : 'Log in to Answer'}
               </button>
@@ -81,9 +81,9 @@ const mapStateToProps = (state, ownProps) => {
 
   return {
     id, slugId,
-    question: getQuestion(state, id),
-    answers: getAnswers(state, id),
-    pagination: state.pagination.answers.all,
+    question: getQuestionById(state)(id),
+    answers: getAnswers(state)(id),
+    listing: state.listing.answers.all,
     isLoggedIn: state.auth.isLoggedIn
   }
 }

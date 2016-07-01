@@ -4,7 +4,7 @@ import {handleError} from '../actions'
 
 export const API_ROOT = process.env.API_ROOT
 export const CALL_API = Symbol('Call API')
-
+export const Canceller = {cancel(reason) {}}
 
 const question = new Schema('questions')
 const answer = new Schema('answers')
@@ -22,8 +22,7 @@ export const Schemas = {
   USER: user
 }
 
-
-function callApi(endpoint, schema, authenticated, method, body) {
+function callApi({authenticated, endpoint, schema, method, body}) {
   const fullUrl =
     (endpoint.indexOf(API_ROOT) === -1)
       ? API_ROOT + (endpoint.substr(0, 1) === '/' ? endpoint.substr(1) : endpoint)
@@ -50,48 +49,51 @@ function callApi(endpoint, schema, authenticated, method, body) {
     }
   }
 
-  return fetch(fullUrl, fetchConf)
-    .then(response =>
-      response.json().then(json => ({json, response}))
-    )
-    .then(({json, response}) => {
-      if (!response.ok) return Promise.reject(json)
+  return new Promise((resolve, reject) => {
+    Canceller.cancel = reason => reject(reason)
 
-      const nextPageUrl = getPageUrl('next', response)
-      if (json.data) json.data.timestamp = Date.now()
+    fetch(fullUrl, fetchConf)
+      .then(response =>
+        response.json().then(json => ({json, response}))
+      )
+      .then(({json, response}) => {
+        if (!response.ok) reject(json)
 
-      // console.log('fetch', json.data)
-      return {
-        ...normalize(json.data, schema), meta: json.meta,
-        nextPageUrl, fullUrl, location: response.headers.get('location')
-      }
-    })
+        const nextPageUrl = getPageUrl('next', response)
+        if (json.data) json.data.timestamp = Date.now()
+
+        resolve({
+          ...normalize(json.data, schema), meta: json.meta,
+          nextPageUrl, fullUrl, location: response.headers.get('location')
+        })
+      })
+      .catch(reject)
+  })
 }
 
 export default store => next => action => {
-  const callAPI = action[CALL_API]
+  if (typeof action[CALL_API] === 'undefined')
+    return next(action)
 
-  // skip mw if the action is not an API call
-  if (typeof callAPI === 'undefined') return next(action)
+  const {types, done, ...payload} = action[CALL_API]
+  const [REQUEST, SUCCESS, ERROR] = types
 
-  const {endpoint, schema, types, authenticated, method, body, filter, afterAction} = callAPI
-  const [requestType, successType, errorType] = types
+  next({type: REQUEST, ...payload})
 
-  next({type: requestType, filter})
-  // console.log('callApi endpoint', endpoint)
-  return callApi(endpoint, schema, authenticated, method, body).then(
+  return callApi(action[CALL_API]).then(
     response => {
-    // setTimeout(_ => { // network delay test
-      next({response, authenticated, type: successType, filter})
-      afterAction && afterAction(store.dispatch, response)
-    // }, 3000) // network delay test
+      next({type: SUCCESS, response, ...payload})
+      done && done(store.dispatch, response)
     },
     error => {
-      const err = {
-        type: errorType,
-        message: error.message || 'Something bad happened'
+      if (error === 'stale') {
+        console.warn(REQUEST, 'cancelled')
+      } else {
+        next({type: ERROR, error, ...payload})
+        handleError(store.dispatch)({
+          type: ERROR,
+          message: error.message || 'Something bad happened'
+        })
       }
-      next(err)
-      handleError(store.dispatch)(err)
     })
 }

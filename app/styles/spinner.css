@@ -6,7 +6,7 @@
     opacity: 0;
     animation: fadeout 0s ease-out both;
     user-select: none;
-    margin: .25em auto;
+    margin: .25em auto 1.25em;
 }
 .spinner.active {
     animation: fadein .5s ease-out .1s both;

@@ -50,7 +50,7 @@ class Question extends Component {
       : <div>
           <h2>{title}</h2>
           <div className="question-body">{text}</div>
-          <div className="grid align-right">
+          <div className="grid align-right usermeta">
             <Link className="avatar" to={`/users/${user.id}`}>
               <img src={user.avatar} alt={user.id} width="34" height="34" />
             </Link>

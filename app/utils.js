@@ -16,7 +16,7 @@ export function idFromSlugId(slugId) {
 export function getFilter(pathname) {
   let filter = 'all'
   try {
-    filter = pathname.match(/^\/(answered|unanswered)/)[1]
+    filter = pathname.match(/^\/(answered|unanswered|search)/)[1]
   } catch (_) {}
   return filter
 }

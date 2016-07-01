@@ -11,18 +11,31 @@ export default ({api, auth}) => {
     let endpoint = `${API_ROOT}questions`
     let lastPg
 
-    const {answered, page} = ctx.query
+    const {answered, page, q} = ctx.query
     const n = +page || 1
     const pageSize = 20
 
     if (+page < 1) ctx.throw(400)
 
     const query =
-      +answered === 1 ? {ansCount: {$gt: 0}} :
-      +answered === 0 ? {ansCount: 0} :
-      {}
+      +answered === 1 ?
+        q ?
+          {ansCount: {$gt: 0}, title: {$regex: `${q}`, $options: 'i'}} :
+          {ansCount: {$gt: 0}} :
+      +answered === 0 ?
+        q ?
+          {ansCount: 0, title: {$regex: `${q}`, $options: 'i'}} :
+          {ansCount: 0} :
+      q ?
+        {title: {$regex: `${q}`, $options: 'i'}} :
+        {}
 
     const count = await m.Question.find(query).count()
+
+    if (!count) {
+      ctx.body = {meta: {count}, data: []}
+      return
+    }
 
     const curPage =
       n === 1
@@ -35,21 +48,18 @@ export default ({api, auth}) => {
 
     if (n > lastPg) ctx.throw(400)
 
-    ctx.body = {
-      meta: {count},
-      data: curPage
-    }
+    ctx.body = {meta: {count}, data: curPage}
 
     if (n >= 2)
-      link += `<${endpoint}?${querystring.stringify({answered, page: 1})}>; rel="first", `
+      link += `<${endpoint}?${querystring.stringify({q, answered, page: 1})}>; rel="first", `
     if (n > 1)
-      link += `<${endpoint}?${querystring.stringify({answered, page: n - 1})}>; rel="prev", `
+      link += `<${endpoint}?${querystring.stringify({q, answered, page: n - 1})}>; rel="prev", `
     if (n < lastPg)
-      link += `<${endpoint}?${querystring.stringify({answered, page: n + 1})}>; rel="next", `
+      link += `<${endpoint}?${querystring.stringify({q, answered, page: n + 1})}>; rel="next", `
     if (n < lastPg)
-      link += `<${endpoint}?${querystring.stringify({answered, page: lastPg})}>; rel="last"`
+      link += `<${endpoint}?${querystring.stringify({q, answered, page: lastPg})}>; rel="last"`
 
-    ctx.set('Link', link)
+    link && ctx.set('Link', link)
   })
 
   api.get('/:username/questions', async ctx => {
